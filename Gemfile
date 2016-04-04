@@ -88,7 +88,7 @@ gem 'bootstrap-kaminari-views'
 gem 'therubyracer'
 
 group :production do
-	gem 'rails_12factor', '0.0.2'
+	gem 'rails_12factor', '0.0.2'#usado por heroku para servir archivos estaticos
 end
 
 gem 'jquery-ui-rails'
