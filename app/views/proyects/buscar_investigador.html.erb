@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2">
+      <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"> <b> Buscar por investigador: &nbsp;Proyectos</b></h3>
+              </div>
+         <div class="panel-body">
+
+                <br/>
+                <br/>
+
+    <%=bootstrap_form_tag url: investigacion_proyecto_resultados_path do |f|%>
+
+      <div class="row">
+          <div class="col-lg-10 col-lg-offset-1">
+        <%= f.form_group :opc, label: { text: "Buscar actividades donde el investigador es:" } do %>
+       </div>
+       <div class="row">
+            <div class="col-lg-10 col-lg-offset-1">   
+          <%= f.radio_button :opc, 0, label: "Creador o esta asociado a la actividad", inline: true, checked: true  %>
+          </div></div>
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-1"> 
+          <%= f.radio_button :opc, 1, label: "Investigador responsable", inline: true %>
+        </div></div>  
+    <div class="row">
+       <div class="col-lg-10 col-lg-offset-1"> 
+          <%= f.radio_button :opc, 2, label: "Co-investigador", inline: true %>
+       </div>
+      </div>
+       <% end %>
+  </div>
+
+        
+
+                <br/>
+                <br/>
+              <div class="row">
+                  <div class="col-lg-8 col-lg-offset-2">  
+                   <%= f.select :user_ids, options_from_collection_for_select(@users, :id, :nombre_apellido), label: "Seleccione un investigador:" %>
+                     
+                    </div>
+              </div>
+              <br/> 
+             
+              <%= f.hidden_field :opcion, :value => 1 , :class => 'form-control' %>
+              <div class="row">
+                  <div class="col-lg-6 col-lg-offset-4">
+                  <%= link_to 'Regresar', investigacion_proyecto_buscar_menu_path , :class=> 'btn btn-success btn-md active'%>
+                         &nbsp;&nbsp;&nbsp;
+              <%= f.submit "Buscar", :class => 'btn btn-success btn-md active'  %>
+              </div>
+              </div>
+           <% end %>   
+<br/> 
+         </div><!-- panel-body  -->
+      </div><!-- panel panel-primary  -->
+    </div><!-- col-lg-12  -->
+  </div>   <!-- row  -->

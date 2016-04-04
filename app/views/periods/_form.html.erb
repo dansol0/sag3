@@ -1,0 +1,84 @@
+<%= form_for @period, :html => { :class => "form-horizontal period" } do |f| %>
+
+
+ <% if @period.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@period.errors.count, "error o errores") %> al guardar el período:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @period.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <br/>
+
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2">
+      <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"> <b>Crear período</b></h3>
+              </div>
+         <div class="panel-body">
+
+          <br/>
+          <br/>
+
+		  <div class="form-inputs">
+		    
+		  
+
+		   			<div class="row">
+		                 <div class="control-group col-lg-5 col-lg-offset-3">
+		                    <%= f.label :ano_periodo,"Período:", :class => 'control-label' %>
+		                    <div class="controls">
+		                      <%= f.number_field :ano_periodo, :class => 'form-control', required: "true", min: '2015' %>
+		                    </div>
+		                    <%= error_span(@period[:ano_periodo]) %>
+		                  </div>
+		            
+		            </div>
+		            <br/> 
+		            <div class="row">
+		                 <div class="control-group col-lg-5 col-lg-offset-3">
+		                   <%= f.label :estatus, "Estatus:",:class => 'control-label' %>
+                    
+                          <div class="controls">
+                            <select required name="period[estatus]" class='form-control' >
+                              <option  disabled="disabled" selected="selected">SELECCIONE</option>
+                              <option value="Activo">Activo</option>
+                              <option value="Desactivado">Desactivado</option>
+                             </select>
+                           </div>
+		                    <%= error_span(@period[:estatus]) %>
+		                  </div>
+		            
+		            </div>
+		    </div>
+<br/>
+<br/><br/>
+		 <div class="row">
+
+                    <div class="col-lg-6 col-lg-offset-4"> 
+                       <%= link_to 'Atras', lista_periodos_path , :class=> 'btn btn-primary active'%>
+                       &nbsp;&nbsp;&nbsp;
+                        <%= f.submit 'Registrar' , :class => 'btn btn-success btn-lg active' %>
+                         &nbsp;&nbsp;&nbsp;
+                        <%= f.submit 'Borrar', type: :reset , :class => 'btn btn-primary active' %>
+                     </div>
+              </div>
+            <br/>
+            
+          </div><!-- panel-body  -->
+      </div><!-- panel panel-primary  -->
+    </div><!-- col-lg-12  -->
+  </div>   <!-- row  --> 
+
+
+<% end %>
+

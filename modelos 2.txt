@@ -1,0 +1,86 @@
+
+************************ Usuario ********************************************
+rails g scaffold User cedula:integer nombre1:string nombre2:string apellido1:string apellido2:string email:string direccion:text tlf:string rol:string password:string dedicacion:string cargo:string area:string categoria_actual:string anos_serv:integer adscrito:string fecha_ult_ascenso:date grado_academico:string
+
+************************* Investigacion *************************************
+
+rails g scaffold Proyect titulo:string estatus:string ente_financista:string integrantes:text monto:float descripcion:text horas:integer fecha_i:date fecha_f:date ano_periodo:integer integrantes:text creador:integer
+
+rails g scaffold Publication titulo:string revista_editorial:string arbitr_no_arbitr:string descripcion:text horas:integer fecha_i:date fecha_f:date ano_periodo:integer creador:integer
+
+
+rails g scaffold Research nombre:string tipo:string descripcion:text horas:integer fecha_i:date fecha_f:date ano_periodo:integer creador:integer
+
+******************** Docencia ***********************************************
+
+rails g scaffold Subject nombre:string tipo:string descripcion:text horas:integer fecha_i:date fecha_f:date ano_periodo:integer creador:integer
+
+rails g scaffold Tutoring nombre:string tipo:string descripcion:text horas:integer fecha_i:date fecha_f:date ano_periodo:integer creador:integer
+
+rails g scaffold Work tipo:string titulo:string autores:text descripcion:text horas:integer fecha_i:date fecha_f:date ano_periodo:integer creador:integer
+
+rails g scaffold Teaching nombre:string tipo:string descripcion:text horas:integer fecha_i:date fecha_f:date ano_periodo:integer user:creador:integer
+
+
+***************Extension *************************************
+
+rails g scaffold Coference tipo:string titulo:string evento:string descripcion:text horas:integer fecha_i:date fecha_f:date ano_periodo:integer creador:integer
+
+rails g scaffold Extension nombre:string tipo:string descripcion:text horas:integer fecha_i:date fecha_f:date ano_periodo:integer creador:integer
+
+**************** Mejoramiento y capacitacion *******************************
+
+rails g scaffold Training nombre:string tipo:string descripcion:text horas:integer fecha_i:date fecha_f:date ano_periodo:integer creador:integer
+
+************************Actividades academico administrativas **********************
+
+rails g scaffold Activity nombre:string tipo:string descripcion:text horas:integer fecha_i:date fecha_f:date ano_periodo:integer user:references
+
+**************************** modelo join .......*****************
+rails g  model CoferenceUser user:references coference:references
+
+rails g  model ProyectUser user:references proyect:references
+
+rails g  model ExtensionUser user:references extension:references
+
+rails g  model PublicationUser user:references publication:references
+
+rails g  model ResearchUser user:references research:references
+
+rails g  model SubjectUser user:references subject:references
+
+rails g  model TeachingUser user:references teaching:references
+
+rails g  model TrainingUser user:references training:references
+
+rails g  model TutoringUser user:references tutoring:references
+
+rails g  model WorkUser user:references work:references
+
+***************** modelo de busqueda *************************
+
+rails g scaffold Search titulo:string estatus:string nombre:string tipo:string revista_editorial:string fecha_i:date fecha_f:date ano_periodo:integer creador:integer arbit_no_arbitr:string
+
+************************************************************************
+
+arrancar el server 
+
+rails s --binding 0.0.0.0 --port 3000
+********************************************************************
+
+generar el archivo de configuracion de kaminari con 
+
+ $ rails g kaminari:config
+ $ rails g kaminari:views default 
+
+ ***********************************************************
+
+ agregar columnas despues de creadas las tablas
+
+ $ rails generate migration add_estatus_to_users estatus_user:string
+ $ rake db:migrate
+
+cambiar nombre del estado del usuario
+rails g migration ChangeEstatusToestatus_user
+
+bundle exec rake db:migrate

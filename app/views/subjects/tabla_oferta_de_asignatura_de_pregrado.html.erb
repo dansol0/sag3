@@ -1,0 +1,88 @@
+<%- model_class = Subject -%>
+<div class="row">
+  <div class="col-lg-12 ">
+      <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"> <b> Tabla de asiganuturas de pregrado</b></h3>
+              </div>
+         <div class="panel-body">
+
+                <br/><br/>
+          <div class="row">
+            <div class="col-lg-5 col-lg-offset-1">
+              
+                  <div class="alert alert-info" role="alert">
+                    <h4 > <em><b> Asignaturas de pregrado encontradas: &nbsp; <%=@cantidad_de_pregrado %> </b></em></h4> 
+                  </div>
+               
+            </div>    
+              <div class="col-lg-4 col-lg-offset-1">    
+                  <ul class="nav nav-tabs nav-justified">
+                  
+                   <% if @subjects.blank? %>
+                       <li role="presentation"><%= link_to "GENERAR DOCUMENTO (PDF)", herramientas_tabla_oferta_de_asignatura_de_postgrado_path(@subjects, :format => 'pdf'), :class=> 'btn btn-info  active', disabled: true %></li>
+                    <%else%>
+                         <li role="presentation"><%= link_to "GENERAR DOCUMENTO (PDF)", herramientas_tabla_oferta_de_asignatura_de_postgrado_path(@subjects, :format => 'pdf'), :class=> 'btn btn-info  active' %></li>
+                    <% end %>
+                      
+
+
+
+                </ul>
+              </div>
+          </div>
+                <br/>
+       <% unless @subjects2.blank? %>
+          <div class="row">
+            <div class="col-lg-7 col-lg-offset-3">
+            <%= paginate @subjects2, :theme => 'twitter-bootstrap-3',:pagination_class => "pagination-md pagination-centered" %>
+            </div>
+            </div>
+       <% end %> 
+<table class="table table-striped">
+                        <thead>
+                          <tr>
+                          <th><%= model_class.human_attribute_name("Tipo") %></th>
+                            <th style="width: 50%"><%= model_class.human_attribute_name("Nombre") %></th>
+                            <th style="width: 25%"><%= model_class.human_attribute_name("Docente responsable") %></th>
+                          
+                           
+                          </tr>
+                        </thead>
+                         <tbody>
+                            <br/>
+                            <% if @subjects.blank? %>
+                              <h4> <b>&nbsp;&nbsp; No se encontro ninguna actividad para esta busqueda </b></h4>
+                              <br/>
+                            <%else%>
+                          <% @subjects.each do |subject| %>
+                              
+                            <tr>
+                            <td><%= subject.tipo %></td>
+                             <td><%= subject.nombre %></td>
+                                <td><%= subject.descripcion %></td>
+                             
+                            </tr>
+                          <% end %>
+                          <% end %>
+                        </tbody>
+                      </table>
+ <% unless @subjects2.blank? %>
+              <div class="row">
+            <div class="col-lg-7 col-lg-offset-3">
+              <%= paginate @subjects2, :theme => 'twitter-bootstrap-3',:pagination_class => "pagination-md pagination-centered" %>
+             </div>
+          </div>
+  <%end%>
+       <br/>
+               <br/>
+               <div class="row">
+                  <div class="col-lg-6 col-lg-offset-5">
+                  <%= link_to 'Regresar', herramientas_tabla_resumen_totalizador_de_asignaturas_de_postgrado_pregrado_path , :class=> 'btn btn-success btn-md active'%>
+                         &nbsp;&nbsp;&nbsp;
+              </div>
+              </div>
+   </div><!-- panel-body  -->
+      </div><!-- panel panel-primary  -->
+    </div><!-- col-lg-12  -->
+  </div>   <!-- row  --> 

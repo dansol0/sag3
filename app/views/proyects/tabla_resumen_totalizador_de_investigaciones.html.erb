@@ -1,0 +1,90 @@
+
+<div class="row">
+  <div class="col-lg-12 ">
+            <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title"> <b>Resumen totalizador de investigaciones, ayudas institucionales
+financiadas y actividades que aportaron recursos económicos al IDEC</b></h3>
+            </div>
+              <div class="panel-body">
+
+<br/><br/>
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-1">
+              
+                  <div class="alert alert-info" role="alert">
+                    <h4 > <em><b> Cantidad total de proyectos de investigación: &nbsp; <%=@resultados %> </b></em></h4> 
+                  </div>
+               
+            </div>    
+              <div class="col-lg-3 col-lg-offset-1">    
+                  <ul class="nav nav-tabs nav-justified">
+                  
+                  
+                         <li role="presentation"><%= link_to "GENERAR DOCUMENTO (PDF)", herramientas_tabla_resumen_totalizador_de_investigaciones_path(@cantidad_de_grupo, @cantidad_individual, :format => 'pdf'), :class=> 'btn btn-info  active' %></li>
+                      
+                       
+                </ul>
+              </div>
+          </div>
+          
+                <br/><br/><br/>
+         
+          <div class="row">
+              
+                <div class="col-lg-5 ">    
+                  <ul class="nav nav-pills nav-stacked">
+                     <li role="presentation"><%= link_to "PROYECTOS EN GRUPO EN DESARROLLO", herramientas_tabla_investigaciones_de_grupo_path, :class=> 'btn btn-info  active' %></li>
+                     <br/>
+                     <li role="presentation"><%= link_to "PROYECTOS INDIVIDUALES EN DESARROLLO", herramientas_tabla_investigaciones_individual_path, :class=> 'btn btn-info  active' %></li>
+                     <br/>
+                     <li role="presentation"><%= link_to "PROYECTOS EN GRUPO EN ESPERA POR APROBACIÓN", herramientas_tabla_investigaciones_de_grupo_en_espera_path, :class=> 'btn btn-info  active' %></li>
+                     <br/>
+                     <li role="presentation"><%= link_to "PROYECTOS INDIVIDUALES EN ESPERA POR APROBACIÓN", herramientas_tabla_investigaciones_individual_en_espera_path, :class=> 'btn btn-info  active' %></li>
+                     <br/>
+                     <li role="presentation"><%= link_to "PROYECTOS EN GRUPO CULMINADOS", herramientas_tabla_investigaciones_de_grupo_culminados_path, :class=> 'btn btn-info  active' %></li>
+                     <br/>
+                     <li role="presentation"><%= link_to "PROYECTOS INDIVIDUALES CULMINADOS", herramientas_tabla_investigaciones_individual_culminados_path, :class=> 'btn btn-info  active' %></li>
+                  </ul>
+                  <br/><br/>
+                </div>
+         
+
+                    <div class="col-lg-4 col-lg-offset-1">   
+                      
+
+                        <table class="table table-hover table-striped table-bordered">
+                          <thead>
+                            <tr class="success">
+                            <td style="width: 30%"><strong> CANTIDAD</strong></td>
+                             <th style="width: 60%">ACTIVIDADES</th>
+                             </tr>
+                          </thead>
+
+                          <tbody>
+                            <tr>
+                                <td><%= @cantidad_de_grupo%></td>
+                                <td>Proyectos de grupo</td>
+                            </tr>
+                            <tr>
+                                <td><%= @cantidad_individual%></td>
+                                <td>Proyectos individuales</td>
+                            </tr>
+                                
+                            
+                          </tbody>
+                        </table>
+                    <br> <br>  
+                </div>
+           
+
+            
+            </div>
+
+            </div>
+    </div>
+    
+
+
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2 ">
+      <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"> <b> Recuperación de contraseña</b></h3>
+              </div>
+         <div class="panel-body">
+
+                <br/> <br/>
+
+<%= bootstrap_form_tag url: password_resets_path do |f|%>
+ <div class="row">
+    <div class="col-lg-5 col-lg-offset-3">
+    <%= f.email_field :email %> 
+    </div>
+    </div>
+    <br/><br/>
+    <div class="row">
+       <div class="col-lg-5 col-lg-offset-4">
+    <%= f.submit "¡Reiniciar mi password!", :class => 'btn btn-success btn-md ' %>
+    </div>
+    </div>
+  
+<% end %>
+
+<br/><br/><br/><br/>
+         </div><!-- panel-body  -->
+      </div><!-- panel panel-primary  -->
+    </div><!-- col-lg-12  -->
+  </div>   <!-- row  -->

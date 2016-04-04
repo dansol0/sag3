@@ -1,0 +1,82 @@
+<div class="row">
+  <div class="col-lg-12 ">
+            <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title"> <b>Resumen totalizador de asignaturas de postgrado y pregrado</b></h3>
+            </div>
+              <div class="panel-body">
+
+<br/><br/>
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-1">
+              
+                  <div class="alert alert-info" role="alert">
+                    <h4 > <em><b> Cantidad total de asignaturas: &nbsp; <%=@resultados %> </b></em></h4> 
+                  </div>
+               
+            </div>    
+              <div class="col-lg-3 col-lg-offset-1">    
+                  <ul class="nav nav-tabs nav-justified">
+                  
+                  
+                         <li role="presentation"><%= link_to "GENERAR DOCUMENTO (PDF)", herramientas_tabla_resumen_totalizador_de_asignaturas_de_postgrado_pregrado_path(@cantidad_de_postgrado, @cantidad_de_pregrado, :format => 'pdf'), :class=> 'btn btn-info  active' %></li>
+                      
+                       
+                </ul>
+              </div>
+          </div>
+          
+                <br/><br/><br/>
+         
+          <div class="row">
+              
+                <div class="col-lg-5 ">    
+                  <ul class="nav nav-pills nav-stacked">
+                     <li role="presentation"><%= link_to "ASIGNATURAS DE POSTGRADO", herramientas_tabla_oferta_de_asignatura_de_postgrado_path, :class=> 'btn btn-info  active' %></li>
+                     <br/>
+                     <li role="presentation"><%= link_to "ASIGNATURAS DE PREGRADO", herramientas_tabla_oferta_de_asignatura_de_pregrado_path, :class=> 'btn btn-info  active' %></li>
+                     
+                     
+                  </ul>
+                  <br/><br/>
+                </div>
+         
+
+                    <div class="col-lg-4 col-lg-offset-1">   
+                      
+
+                        <table class="table table-hover table-striped table-bordered">
+                          <thead>
+                            <tr class="success">
+                            <td style="width: 30%"><strong> CANTIDAD</strong></td>
+                             <th style="width: 60%">TIPO DE ASIGNATURA</th>
+                             </tr>
+                          </thead>
+
+                          <tbody>
+                            <tr>
+                                <td><%= @cantidad_de_postgrado%></td>
+                                <td>Asignaturas de postgrado</td>
+                            </tr>
+                            <tr>
+                                <td><%= @cantidad_de_pregrado%></td>
+                                <td>Asignaturas de pregrado</td>
+                            </tr>
+                                
+                            
+                          </tbody>
+                        </table>
+                    <br> <br>  
+                </div>
+           
+
+            
+            </div>
+
+            </div>
+    </div>
+    
+
+
+  </div>
+</div>

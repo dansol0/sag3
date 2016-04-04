@@ -1,0 +1,36 @@
+       <div class="row">
+  <div class="col-lg-8 col-lg-offset-2">
+      <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"> <b>Buscar investigador por numero de cédula</b></h3>
+              </div>
+         <div class="panel-body">
+
+         <br/>
+      <br/>
+
+         
+       
+       <%= bootstrap_form_tag url: perfil_usuario_path do |f|%>
+             <div class="row">
+                <div class="col-lg-6 col-lg-offset-2">
+                 <%= f.number_field :id,  min: 1000000, max: 30000000, help: "Ej. de cédula: 16123000 ", label: "Cédula del investigador:", :required => true %>
+                </div>
+              </div>
+              <br/>    <br/>    
+                     
+              <div class="row">
+                <div class="col-lg-6 col-lg-offset-5">
+                  <div class="actions"><%= f.submit "Consultar", :class=> 'btn btn-success btn-md active' %></div>
+                  </div>
+              </div>
+             
+             <% end %>
+     
+           
+      <br/>
+      </div><!-- panel-body  -->
+      </div><!-- panel panel-primary  -->
+    </div><!-- col-lg-12  -->
+  </div>   <!-- row  --> 
+   <br/>   <br/>

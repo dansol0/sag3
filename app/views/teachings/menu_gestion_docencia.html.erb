@@ -1,0 +1,114 @@
+<%- model_class = Teaching  -%>
+ <div class="row">
+	<div class="col-lg-12 ">
+        		<div class="panel panel-primary">
+					  <div class="panel-heading">
+					    <h3 class="panel-title"> <b>Menu de gestión: &nbsp; Otras actividades de docencia</b></h3>
+					  </div>
+			  			<div class="panel-body">
+
+<br/><br/>
+
+			<div class="row ">
+				 <div class="col-lg-10 col-lg-offset-1 ">
+					<ul class="nav nav-tabs nav-justified">
+					  <li role="presentation" > <%= link_to "CONSULTAR ACTIVIDADES", menu_docencia_4_path, :class=> 'btn btn-info  active' %></li>
+					  <li role="presentation"><%= link_to "CREAR ACTIVIDAD", docencia_otra_resgistro_path, :class=> 'btn btn-info  active' %></li>
+					  
+					       <% if @teachings.blank? %>
+                        <li role="presentation"><%= link_to "GENERAR DOCUMENTO (PDF)", menu_docencia_4_path(@teachings, :format => 'pdf'), :class=> 'btn btn-info  active', disabled: true %></li>
+                      <%else%>
+                          <li role="presentation"><%= link_to "GENERAR DOCUMENTO (PDF)", menu_docencia_4_path(@teachings, :format => 'pdf'), :class=> 'btn btn-info  active' %></li>
+                      <% end %>
+                        
+					</ul>
+				  </div>
+			  </div>
+			  
+						<br/><br/>
+						<div class="row">
+				            <div class="col-md-3 col-md-offset-1">
+				              
+				                  <div class="alert alert-info" role="alert">
+				                     <em><b> Actividades encontradas: &nbsp; <%=@resultados %> </b></em>
+				                  </div>
+				              </div> 
+				            </div>
+						<br/><br/>
+					<div class="row">		
+						<div class="col-md-5 col-md-offset-4">
+							<div class="alert alert-info" role="alert">
+							 <h6 class="text-center"><b> ACTIVIDADES REGISTRADAS EN EL PERIODO ACTUAL</b></h6>
+							</div>
+						</div>
+				     </div>
+			<div class="row">
+            <div class="col-lg-7 col-lg-offset-3">
+            <%= paginate @teachings, :theme => 'twitter-bootstrap-3',:pagination_class => "pagination-md pagination-centered" %>
+            </div>
+            </div>
+				<div class="row">		
+						<div class="col-lg-12 ">
+						        <div class="table-responsive">
+								  				
+
+						        		
+											<table class="table table-striped">
+											  <thead>
+											    <tr>
+											      <th><%= model_class.human_attribute_name("Id") %></th>
+											      <th style="width: 15%"><%= model_class.human_attribute_name("Tipo") %></th>
+											     <th style="width: 55%"><%= model_class.human_attribute_name("Nombre") %></th>
+											      <th><%= model_class.human_attribute_name("Fecha Inicio") %></th>
+											      <th><%=t '.actions', :default => t("helpers.Acción") %></th>
+											    </tr>
+											  </thead>
+											  <tbody>
+											  <br/>
+					                          <% if @teachings.blank? %>
+					                            <h4> <b> &nbsp;&nbsp;No se encontro ninguna actividad para esta busqueda </b></h4>
+					                            <br/>
+					                          <%else%>
+											    <% @teachings.each do |teaching| %>
+											      <tr>
+											        <td><%= link_to teaching.id, teaching_path(teaching) %></td>
+											        <td><%= teaching.tipo %></td>
+											        <td><%= teaching.nombre %></td>
+											        
+											        <td><%= teaching.fecha_i %></td>
+											        
+											        <td>
+											        
+											          <%= link_to 'Mostrar', docencia_otra_ver_path(teaching) , :class=> 'btn btn-info btn-xs active'%>
+										              <%= link_to 'Editar', docencia_otra_modificar_path(teaching) , :class=> 'btn btn-warning btn-xs active'%>
+										               <%= link_to 'Eliminar', teaching, method: :delete, data: { confirm: '¿Esta seguro que desea eliminar la actividad?' }, :class=> 'btn btn-danger btn-xs active'%>
+
+											        </td>
+											      </tr>
+											    <% end %>
+											    <%end%>
+											  </tbody>
+											</table>
+			<div class="row">
+            <div class="col-lg-7 col-lg-offset-3">
+            <%= paginate @teachings, :theme => 'twitter-bootstrap-3',:pagination_class => "pagination-md pagination-centered" %>
+            </div>
+            </div>
+
+
+
+
+
+								</div>
+						</div>
+
+				</div>		
+
+
+			  </div>
+		</div>
+		
+
+
+	</div>
+</div>

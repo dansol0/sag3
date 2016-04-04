@@ -1,0 +1,74 @@
+<!--url: administrar_cambiar_clave_path-->
+      <%= bootstrap_form_for :user, :url => { :action => :cambiar_clave, :id => @user.id },:method => :put do |f| %>
+        <% if @user.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@user.errors.count, "error") %> Error al registrar al usuario:</h2>
+
+            <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="row">
+  <div class="col-lg-10 col-lg-offset-1">
+      <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"> <b>Modificar contraseña </b></h3>
+              </div>
+         <div class="panel-body">
+
+         <br/>
+         <br/>
+
+       
+            <div class="row">
+                  <div class="col-lg-8 col-lg-offset-1">
+                      <h1> <p class="text-uppercase"> <b>Profesor:</b>&nbsp;&nbsp; <%= @user.nombre1 %> &nbsp; <%= @user.apellido1%>     </p></h1>
+                  </div> 
+             </div>
+            <br/>
+            <br/>
+
+
+        <div class="row">
+                  <div class="control-group col-lg-4 col-lg-offset-2">
+                             <div class="controls">
+                                 <%= f.password_field :password, hide_label: true, placeholder: "Nueva contraseña", help: "Logitud entre 4 y 12 caracteres"%>
+                              </div>
+                              <%= error_span(@user[:password]) %>
+                        </div>
+
+                       <div class="control-group col-lg-4 ">
+                             <div class="controls">
+                             <%= f.password_field :password_confirmation, hide_label: true, placeholder: "Confirme la nueva contraseña"%>
+                              </div>
+                              <%= error_span(@user[:password_confirmation]) %>
+                       </div>
+             </div>        
+
+
+              <br/>  <br/>
+             </div>
+              <div class="row">
+                    <div class="col-lg-6 col-lg-offset-4"> 
+                       <%= link_to 'Regresar', usuarios_listar_path , :class=> 'btn btn-primary active'%>
+                       &nbsp;&nbsp;&nbsp;
+                        <%= f.submit 'Registrar' , :class => 'btn btn-success btn-lg active' %>
+                         &nbsp;&nbsp;&nbsp;
+                        <%= f.submit 'Borrar', type: :reset , :class => 'btn btn-primary active' %>
+                     </div>
+              </div>
+
+            <br/>  <br/>
+            
+          </div><!-- panel-body  -->
+      </div><!-- panel panel-primary  -->
+    </div><!-- col-lg-12  -->
+  </div>   <!-- row  --> 
+
+
+
+<% end %>

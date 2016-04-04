@@ -1,0 +1,178 @@
+<%= form_for(@work) do |f| %>
+  <% if @work.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@work.errors.count, "error o errores") %> al guardar la actividad:</h3>
+
+      <ul>
+      <% @work.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+  <div class="col-lg-12 ">
+      <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"> <b>Modificar:   &nbsp;Jurado</b></h3>
+              </div>
+         <div class="panel-body">
+
+          <br/>
+          <br/>
+
+            <div class="row">
+
+                  <div class="col-lg-3 col-lg-offset-1">
+
+                      <div class="control-group">
+                        <%= f.label :tipo, "Tipo:", :class => 'control-label' %>
+                         <div class="controls">
+                              <%= f.text_field :tipo, :class => 'form-control' , readonly: "true" %>
+                            </div>
+                        <%= error_span(@work[:tipo]) %>
+                      </div>  
+                  </div>
+
+
+                  <div class="col-lg-2 col-lg-offset-1">
+                           <div class="control-group">
+                            <%= f.label :horas, "Horas Dedicadas:" ,:class => 'control-label' %>
+                            <div class="controls">
+                              <%= f.number_field :horas, :class => 'form-control' , min: 1, max: 10000, required: "true" %>
+                            </div>
+                            <%= error_span(@work[:horas]) %>
+                          </div>
+                  </div> 
+
+                  <div class="control-group col-lg-2 col-lg-offset-1">
+                        <%= f.label :ano_periodo, "Año Período:", :class => 'control-label' %>
+                        <div class="controls">
+                          <%= f.number_field :ano_periodo, :class => 'form-control', min:"2015", max:"2050" , readonly: "true" %>
+                        </div>
+                        <%= error_span(@work[:ano_periodo]) %>
+                  </div>
+            </div>
+            <br/>
+            <br/>
+
+            <div class="row">
+                <div class="control-group col-lg-8 col-lg-offset-1">
+                  <%= f.label :titulo , "Titulo:",  :class => 'control-label'%><br>
+                    <div class="controls">
+                      <%= f.text_field :titulo, :class => 'form-control', required: "true" %>
+                    </div>
+                    <%= error_span(@work[:titulo]) %>
+                  </div>
+            </div>
+            <br/>
+            <br/>
+
+             <div class="row">
+               <div class="col-lg-6 col-lg-offset-1">
+                      <div class="control-group">
+                        <%= f.label :autores, "Autores:", :class => 'control-label' %>
+                        <div class="controls">
+                   
+                          <%= f.text_area :autores,"cols" => 10, "rows" => 2, :class => 'form-control', required: "true"%>
+                        </div>
+                        <%= error_span(@work[:autores]) %>
+                      </div>
+                </div>
+            </div>
+            <br/>
+            <br/>
+             
+              <div class="row">
+                  <div class="control-group col-lg-3 col-lg-offset-1">
+                              <%= f.label :fecha_i,"Fecha Inicio:", :class => 'control-label' %>
+                              <div class="controls">
+                                <%= f.date_field :fecha_i, :class => 'form-control', min: "2015-01-01", required: "true" %>
+                              </div>
+                              <%= error_span(@work[:fecha_i]) %>
+                        </div>
+
+                       <div class="control-group col-lg-3 col-lg-offset-1">
+                              <%= f.label :fecha_f, "Fecha Fin:",:class => 'control-label', max: Date.today %>
+                              <div class="controls">
+                          
+                                <%= f.date_field :fecha_f, :class => 'form-control' %>
+                              </div>
+                              <%= error_span(@work[:fecha_f]) %>
+                       </div>
+             </div>        
+
+            <br/>
+            <br/>
+            <div class="row">
+
+                  <div class="col-lg-9 col-lg-offset-1">
+
+                      
+                      <div class="control-group">
+                        <%= f.label :descripcion, "Descripción:", :class => 'control-label' %>
+                        <div class="controls">
+                   
+                          <%= f.text_area :descripcion,"cols" => 10, "rows" => 4, :class => 'form-control', required: "true"%>
+                        </div>
+                        <%= error_span(@work[:descripcion]) %>
+                      </div>
+                </div>
+              </div>
+
+               <br/>
+            <div class="row">     
+                   <div class="control-group col-lg-10 col-lg-offset-2">
+                     
+                        <h4><%= f.label 'Marque a los investigadores que desea asociar a esta actividad:' %> </h4>
+                        
+                            <br>
+                        
+                       <div class="controls">
+                             
+                            <% @users.each  do |user|  %>
+                            <div class="col-lg-5">
+                              <p class="text-uppercase">  <%= check_box_tag "work[user_ids][#{user.id}]",nil, @work.users.member?(user) %>
+                              <%= user.nombre_apellido %> </p>
+                              </div>
+                              <br> <br>
+                          <% end %>
+                          
+                       </div>
+                         
+                     </div>
+                </div>
+
+                <div class="control-group">
+                  <%= f.hidden_field :creador, :value => current_user.id %>
+                </div>
+
+            <br/>
+            <br/>
+                 
+              <br/>  <br/>
+             </div>
+
+               <div class="row">
+
+                    <div class="col-lg-4 col-lg-offset-4"> 
+                       <%= link_to 'Regresar', menu_docencia_3_path , :class=> 'btn btn-primary active'%>
+                       &nbsp;&nbsp;&nbsp;
+                        <%= f.submit 'Registrar' , :class => 'btn btn-success btn-lg active' %>
+                         &nbsp;&nbsp;&nbsp;
+                        <%= f.submit 'Borrar', type: :reset , :class => 'btn btn-primary active' %>
+                     </div>
+              </div>
+
+                <br/> 
+
+            
+          </div><!-- panel-body  -->
+      </div><!-- panel panel-primary  -->
+    </div><!-- col-lg-12  -->
+  </div>   <!-- row  --> 
+
+ 
+<% end %>
+

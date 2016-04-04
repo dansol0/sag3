@@ -1,0 +1,45 @@
+
+<%- model_class = Period -%>
+
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2">
+      <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"> <b>Mostrar Período</b></h3>
+              </div>
+         <div class="panel-body">
+
+                <br/><br/>
+
+           
+            
+               <dl class="dl-horizontal">
+                    <dt><strong>Período:</strong></dt>
+                    <dd><%= @period.ano_periodo %></dd>
+                     <br/>
+                    <dt><strong>Estatus:</strong></dt>
+                    <dd><%= @period.estatus %></dd>
+                     <br/>
+                    
+                </dl>
+
+                  
+                  <br/><br/>
+
+                     <div class="row">
+                      <div class="col-lg-6 col-lg-offset-4"> 
+                         <%= link_to 'Atras', lista_periodos_path , :class=> 'btn btn-primary  active'%>
+                         &nbsp;&nbsp;&nbsp;
+                         <%= link_to 'Editar', cambiar_periodo_path(@period) , :class=> 'btn btn-success btn-lg active'%>
+                         &nbsp;&nbsp;&nbsp;
+                         <%= link_to 'Eliminar', @period, method: :delete, data: { confirm: '¿Esta seguro que desea eliminar el período?' }, :class=> 'btn btn-primary  active'%>
+                       </div>
+                     </div>
+
+                  <br/> 
+            
+          </div><!-- panel-body  -->
+      </div><!-- panel panel-primary  -->
+    </div><!-- col-lg-12  -->
+  </div>   <!-- row  --> 
+

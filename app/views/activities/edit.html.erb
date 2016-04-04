@@ -1,0 +1,152 @@
+<%= form_for @activity, :html => { :class => "form-horizontal activity" } do |f| %>
+
+    <% if @activity.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@activity.errors.count, "error o errores") %> al guardar la actividad:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @activity.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+<div class="row">
+  <div class="col-lg-12 ">
+      <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"> <b>Modificar:   &nbsp;Académico administrativas</b></h3>
+              </div>
+         <div class="panel-body">
+
+         <br/>
+      <br/>
+
+      
+
+        <div class="row">
+
+                  <div class="col-lg-3 col-lg-offset-1">
+
+                      <div class="control-group">
+                        <%= f.label :tipo, "Tipo:", :class => 'control-label' %>
+                         <div class="controls">
+                              <%= f.text_field :tipo, :class => 'form-control' , readonly: "true" %>
+                            </div>
+                        <%= error_span(@activity[:tipo]) %>
+                      </div>  
+                  </div>
+         </div>
+            <br/>
+            <br/>
+            <div class="row">
+                  <div class="col-lg-6 col-lg-offset-1">
+                           <div class="control-group">
+                            <%= f.label :nombre, "Nombre:" ,:class => 'control-label' %>
+                            <div class="controls">
+                              <%= f.text_field :nombre, :class => 'form-control' %>
+                            </div>
+                            <%= error_span(@activity[:nombre]) %>
+                          </div>
+                  </div> 
+
+            </div>
+            <br/>
+            <br/>
+              <div class="row">        
+
+                  <div class="col-lg-2 col-lg-offset-1">
+                           <div class="control-group">
+                            <%= f.label :horas, "Horas Dedicadas:" ,:class => 'control-label' %>
+                            <div class="controls">
+                              <%= f.number_field :horas, :class => 'form-control' , min: 1, max: 10000, required: "true" %>
+                            </div>
+                            <%= error_span(@activity[:horas]) %>
+                          </div>
+                  </div> 
+
+                  <div class="control-group col-lg-2 col-lg-offset-1">
+                        <%= f.label :ano_periodo, "Año Período:", :class => 'control-label' %>
+                        <div class="controls">
+                          <%= f.number_field :ano_periodo, :class => 'form-control', min:"2015", max:"2050", readonly: "true" %>
+                        </div>
+                        <%= error_span(@activity[:ano_periodo]) %>
+                  </div>
+            </div>
+            <br/>
+            <br/>
+              <div class="row">
+                  <div class="control-group col-lg-3 col-lg-offset-2">
+                              <%= f.label :fecha_i,"Fecha Inicio:", :class => 'control-label' %>
+                              <div class="controls">
+                                <%= f.date_field :fecha_i, :class => 'form-control', min: "2015-01-01", required: "true" %>
+                              </div>
+                              <%= error_span(@activity[:fecha_i]) %>
+                        </div>
+
+                       <div class="control-group col-lg-3 col-lg-offset-1">
+                              <%= f.label :fecha_f, "Fecha Fin:",:class => 'control-label', max: Date.today %>
+                              <div class="controls">
+                          
+                                <%= f.date_field :fecha_f, :class => 'form-control' %>
+                              </div>
+                              <%= error_span(@activity[:fecha_f]) %>
+                       </div>
+             </div>        
+
+            <br/>
+            <br/>
+            <div class="row">
+
+                  <div class="col-lg-9 col-lg-offset-1">
+
+                      
+                      <div class="control-group">
+                        <%= f.label :descripcion, "Descripción:", :class => 'control-label' %>
+                        <div class="controls">
+                   
+                          <%= f.text_area :descripcion,"cols" => 10, "rows" => 4, :class => 'form-control', required: "true"%>
+                        </div>
+                        <%= error_span(@activity[:descripcion]) %>
+                      </div>
+                </div>
+              </div>
+                  <br/> 
+                     
+              <div class="row">
+                  <div class="col-lg-3 col-lg-offset-1">     
+                      
+                        <div class="controls">
+                          <%= f.hidden_field :user_id, :value => current_user.id, :class => 'form-control' %>
+                        </div>
+                    
+                </div>
+
+                
+              <br/>  <br/>
+             </div>
+              <div class="row">
+                    <div class="col-lg-4 col-lg-offset-4"> 
+                       <%= link_to 'Regresar', menu_academico_administrativo_1_path , :class=> 'btn btn-primary active'%>
+                       &nbsp;&nbsp;&nbsp;
+                        <%= f.submit 'Registrar' , :class => 'btn btn-success btn-lg active' %>
+                         &nbsp;&nbsp;&nbsp;
+                        <%= f.submit 'Borrar', type: :reset , :class => 'btn btn-primary active' %>
+                     </div>
+              </div>
+
+            <br/> 
+            
+          </div><!-- panel-body  -->
+      </div><!-- panel panel-primary  -->
+    </div><!-- col-lg-12  -->
+  </div>   <!-- row  --> 
+
+
+
+<% end %>
+

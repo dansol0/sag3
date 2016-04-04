@@ -1,0 +1,60 @@
+<%- model_class = Activity -%>
+
+<div class="row">
+  <div class="col-lg-10 col-lg-offset-1">
+      <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"> <b>Actividad en detalle: &nbsp; Académico administrativa</b></h3>
+              </div>
+         <div class="panel-body">
+                <br/>
+                <div class="row">
+                      <div class="col-lg-4 col-lg-offset-1"> 
+                         
+                         <%= link_to "Generar documento (PDF)", activity_path(@activity, :format => 'pdf'), :class=> 'btn btn-info  active' %>
+                       </div>
+                     </div>
+                  <br/> <br/> 
+            
+               <dl class="dl-horizontal">
+                    <dt><strong>Tipo:</strong></dt>
+                    <dd><%= @activity.tipo %></dd>
+                    <br/>
+                    <dt><strong>Nombre:</strong></dt>
+                    <dd><%= @activity.nombre %></dd>
+                    <br/>
+                    <dt><strong>Descripción:</strong></dt>
+                    <dd><%= @activity.descripcion %></dd>
+                    <br/>
+                    <dt><strong>Horas:</strong></dt>
+                    <dd><%= @activity.horas %></dd>
+                    <br/>
+                    <dt><strong>Fecha Inicio:</strong></dt>
+                    <dd><%= @activity.fecha_i %></dd>
+                    <br/>
+                    <dt><strong>Fecha Fin:</strong></dt>
+                    <dd><%= @activity.fecha_f %></dd>
+                    <br/>
+                    <dt><strong>Año periodo:</strong></dt>
+                    <dd><%= @activity.ano_periodo %></dd>
+                    <br/>
+                     <dt><strong>Creado por:</strong></dt>
+                     <dd> <p class="text-uppercase"><%= @userr.nombre1 %>&nbsp;<%= @userr.apellido1 %> </p></dd>
+                    
+                  </dl>
+
+                  <br/> 
+
+                     
+                     <div class="row">
+                      <div class="col-lg-4 col-lg-offset-5"> 
+                      
+                         
+                       </div>
+                     </div>
+                  <br/> 
+            
+          </div><!-- panel-body  -->
+      </div><!-- panel panel-primary  -->
+    </div><!-- col-lg-12  -->
+  </div>   <!-- row  --> 

@@ -1,0 +1,90 @@
+
+<div class="row">
+  <div class="col-lg-12 ">
+            <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title"> <b>Menu de gestión de usuarios</b></h3>
+            </div>
+              <div class="panel-body">
+
+<br/><br/>
+        <div class="row ">
+         <div class="col-lg-10 col-lg-offset-1 ">
+          <ul class="nav nav-tabs nav-justified">
+            
+            <li role="presentation"><%= link_to "CREAR INVESTIGADOR", new_user_path, :class=> 'btn btn-info  active' %></li>
+            <li role="presentation"><%= link_to "GENERAR DOCUMENTO (PDF)", usuarios_listar_path(@users, :format => 'pdf'), :class=> 'btn btn-info  active' %></li>
+          </ul>
+          </div>
+        </div>
+
+          
+            <br/><br/><br/>
+            <div class="row">
+                <div class="col-lg-3 col-lg-offset-4 ">   
+                  <div class="alert alert-info" role="alert">
+                          <h5> <b>&nbsp; &nbsp;&nbsp;&nbsp;LISTA DE INVESTIGADORES</b></h5>
+                  </div>
+                </div></div>
+                <br/>
+          <div class="row">
+            <div class="col-lg-7 col-lg-offset-3">
+            <%= paginate @users2, :theme => 'twitter-bootstrap-3',:pagination_class => "pagination-md pagination-centered" %>
+            </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12  ">   
+                  
+
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>Cedula</th>
+                          <th>Primer Nombre</th>
+                          <th>Primer Apellido</th>
+                         <th>Rol</th>
+                          
+                          <th>Cargo</th>
+                          <th colspan="2"></th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <% @users.each do |user| %>
+                        <%@user = user %>
+                          <tr>
+                            <td><%= user.id %></td>
+                            <td style="width: 15%"><%= user.nombre1 %></td>
+                             <td style="width: 15%"><%= user.apellido1 %></td>
+                            <td><%= user.rol %></td>
+                            
+                            <td style="width: 25%"><%= user.cargo %></td>
+                            
+                            <td><%= link_to 'Mostrar', user , :class=> 'btn btn-info btn-xs active'%></td>
+                            
+                            <td><%= link_to 'Editar', modificar_usuario_path( user) , :class=> 'btn btn-warning btn-xs active'%></td>
+                            <td><%= link_to 'Editar clave', modificar_clave_usuario_path(:id => user.id) , :class=> 'btn btn-success btn-xs active'%></td>
+                            <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: '¿Estas seguro?' }, :class=> 'btn btn-danger btn-xs active'%></td>
+                          </tr>
+                        <% end %>
+                      </tbody>
+                    </table>
+                    <br/>
+          <div class="row">
+            <div class="col-lg-7 col-lg-offset-3">
+            <%= paginate @users2, :theme => 'twitter-bootstrap-3',:pagination_class => "pagination-md pagination-centered" %>
+            </div>
+            </div>
+
+                    <br> <br>  
+            </div>
+            </div>
+
+            </div>
+    </div>
+    
+
+
+  </div>
+</div>

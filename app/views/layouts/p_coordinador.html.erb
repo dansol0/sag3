@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Sag3</title>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Striped</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    
+    <%= csrf_meta_tags %>
+    
+</head>
+<body>
+<div class="container">
+
+    <div class="row">
+            <div class="col-lg-12">
+              <%= image_tag "banner2.jpg", :alt => "banner", :title => "banner idec" , class: "img-responsive", size: "1170x136"%>
+             </div>
+    </div>
+
+       <div class="row">
+      <div class="col-lg-12">
+
+            <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                
+                <li><a class="navbar-brand" href= ""> <b>SISGADIE</b> </a> </li>
+              </div>
+
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-tasks"></span><b> GESTIÓN DE ACTIVIDADES</b><span class="caret"></span></a>
+                         <ul class="dropdown-menu">
+                      <li class="dropdown-header"><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp; ÁREA DE INVESTIGACIÓN</li>
+                      <li role="separator" class="divider"></li>
+                      <li><%= link_to menu_investigacion_1_path do %>&nbsp;&nbsp;&nbsp; <span class="glyphicon glyphicon-edit"></span>  Proyectos <% end %></li>
+                       <li role="separator" class="divider"></li>
+                      <li><%= link_to menu_investigacion_2_path do %>&nbsp;&nbsp;&nbsp; <span class="glyphicon glyphicon-edit"></span>  Publicaciones <% end %></li>
+                      <li role="separator" class="divider"></li>
+                      <li>  <%= link_to menu_investigacion_3_path do %>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span>  Otras actividades <% end %></li>
+                      <li role="separator" class="divider"></li>
+
+                      <li class="dropdown-header"><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp; ÁREA DE DOCENCIA</li>
+                      <li role="separator" class="divider"></li>
+                      <li><%= link_to menu_docencia_1_path do %>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span>  Dictado de asignaturas <% end %></li>
+                      <li role="separator" class="divider"></li>
+                      <li><%= link_to menu_docencia_2_path do %>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span>  Tutorías <% end %></li>
+                      <li role="separator" class="divider"></li>
+                      <li><%= link_to menu_docencia_3_path do %>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span>  Jurado  <% end %></li>
+                      <li role="separator" class="divider"></li>
+                      <li><%= link_to menu_docencia_4_path do %>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span>  Otras actividades <% end %></li>
+                      <li role="separator" class="divider"></li>
+
+                       <li class="dropdown-header"><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp; ÁREA DE EXTENSIÓN</li>
+                       <li role="separator" class="divider"></li>
+                       <li><%= link_to menu_extension_1_path do %>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span>  Conferencias o ponencias <% end %></li>
+                       <li role="separator" class="divider"></li>
+                       <li><%= link_to menu_extension_2_path do %>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span>  Otras actividades <% end %></li>
+
+                      <li role="separator" class="divider"></li>
+                      <li> <%= link_to menu_mejoramiento_y_capacitacion_1_path do %><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp; Mejoramiento y capacitación <% end %> </li>
+                      <li role="separator" class="divider"></li>
+                      <li> <%= link_to menu_academico_administrativo_1_path do %><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp; Académico administrativas <% end %> </li>
+                    </ul>
+                  </li>
+
+                <li><%= link_to buscar_por_area_path do %><span class="glyphicon glyphicon-search">  </span><b> BUSCAR ACTIVIDAD</b><% end %>     
+                </li>
+
+                 
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-save-file"></span><b> REPORTES</b><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                     <li><%= link_to herramientas_graficos_path do %><i class="glyphicon glyphicon-stats"></i> Generar gráficos <% end %></li>
+                     <li role="separator" class="divider"></li>
+                      <li><%= link_to herramientas_tablas_path do %><i class="glyphicon glyphicon-list-alt"></i> Generar tablas <% end %></li>
+                      <li role="separator" class="divider"></li>
+                      <li><%= link_to herramientas_estadisticas_path do %><i class="glyphicon glyphicon-th-list"></i> Estadísticas <% end %></li>
+                      
+                    </ul>
+                  </li>
+
+
+                </ul>
+                
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li class="dropdown" >
+                           <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <span class="glyphicon glyphicon-user"> </span>       <% if current_user %>
+                                     <b> <%= current_user.nombre_apellido %> </b> 
+                                      
+                                      <%else%>
+                                          Cuenta
+                                      <%end%>
+
+                             </a>  
+
+                              <ul class="dropdown-menu" role="menu">
+                                  <li> <%= link_to perfil_path(current_user.id) do %><span class="glyphicon glyphicon-briefcase"></span> Perfil <% end %> </li>
+                                  <li role="presentation" class="divider"></li>
+                                  <li> <%= link_to logout_path do %><span class="glyphicon glyphicon-off"></span> Cerrar sesión <% end %> </li>
+                                
+
+                            </ul>
+                          </li>  
+                </ul>
+
+
+              </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+          </nav>
+
+       </div>   
+     </div>   
+
+
+  	<div class="row">
+
+        <div class="col-lg-12  ">
+                <div class="row col-lg-8 col-lg-offset-2">
+
+                    <div id="notice_wrapper">
+                  <% if notice %>
+                     <p class="notice"><%= notice %></p>
+                  <% elsif alert %>  
+                     <p class="alert"><%= alert %></p>
+                  <% end %>   
+                </div>
+            </div> 
+           
+          <%= yield %>
+        </div>
+      </div>
+    
+      
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+              <p class="text-muted text-footer text-center"><br/>
+                        &copy; 2015 IDEC, Instituto de Desarrollo Experimental de la Construcción.
+                 </p>
+        </div>
+    </div>
+  </div>
+</body>
+</html>

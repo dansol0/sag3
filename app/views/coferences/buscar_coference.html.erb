@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2">
+      <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"> <b> Buscar por período: &nbsp;conferencias o ponencias </b></h3>
+              </div>
+         <div class="panel-body">
+
+                <br/><br/>
+
+   <%= bootstrap_form_tag url: extension_conferencia_o_ponencia_resultados_path do |f|%>
+   
+             <div class="row">
+                <div class="col-lg-5 col-lg-offset-3">
+                  <%= f.number_field :ano_periodo,  min: 2015, max: 2040, help: "Elija un año desde 2015 en adelante", label: "Año del período", required: "true" %>
+                </div>
+              </div>   
+      <br/>
+               <div class="row">
+                <div class="col-lg-5 col-lg-offset-3">   
+                    <%= f.select :tipo, options_for_select(["","Conferencia", "Ponencia"]), { label: "Tipo de la actividad" }, { class: "selectpicker" } %>
+                </div>
+              </div>
+
+               <%= f.hidden_field :user_id, :value => current_user.id, :class => 'form-control' %> 
+
+            <%= f.hidden_field :opcion, :value => 3 , :class => 'form-control' %>
+              
+                     
+<br/><br/>
+    			  <div class="actions">
+            <div class="row">
+                      <div class="col-lg-5 col-lg-offset-4"> 
+                         <%= link_to 'Regresar', extension_conferencia_o_ponencia_buscar_menu_path , :class=> 'btn btn-primary active'%>
+                         &nbsp;&nbsp;&nbsp;
+                          <%= f.submit 'Buscar' , :class => 'btn btn-success btn-lg active' %>
+                           &nbsp;&nbsp;&nbsp;
+                          <%= f.submit 'Borrar', type: :reset , :class => 'btn btn-primary active' %>
+                       </div>
+                </div>
+              </div>
+  		
+         <% end %> 
+
+
+          <br/>
+          <br/>  
+
+           
+
+               
+
+
+   </div><!-- panel-body  -->
+      </div><!-- panel panel-primary  -->
+    </div><!-- col-lg-12  -->
+  </div>   <!-- row  -->              
+
+  

@@ -1,0 +1,46 @@
+<br/>
+<div class="row">
+  <div class="col-lg-12 ">
+      <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"> <b> Buscar por investigador</b></h3>
+              </div>
+         <div class="panel-body">
+
+                <br/>
+                <br/>
+
+                <%=
+           bootstrap_form_tag url: buscar_por_investigador_path do |f|%>
+
+              <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">   
+                    
+                  </div>
+              </div>
+              <br/><br/>
+              <div class="row">
+                  <div class="col-lg-8 col-lg-offset-2">   
+                     <% users_array = User.all.map { |user| [user.nombre1, user.id] } %>
+                        <%= options_for_select(users_array) %>
+                    
+                    </div>
+              </div>
+              <br/> <br/>
+
+              <div class="row">
+                  <div class="col-lg-6 col-lg-offset-4">
+                  <%= link_to 'Atras', extension_conferencia_o_ponencia_buscar_menu_path , :class=> 'btn btn-success btn-lg active'%>
+                         &nbsp;&nbsp;&nbsp;
+              <%= f.submit "Buscar", :class => 'btn btn-success btn-lg active'  %>
+              </div>
+              </div>
+           <% end %>   
+
+
+
+
+         </div><!-- panel-body  -->
+      </div><!-- panel panel-primary  -->
+    </div><!-- col-lg-12  -->
+  </div>   <!-- row  -->

@@ -1,0 +1,264 @@
+
+      <%= form_for (@user) do |f| %>
+      
+        <% if @user.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@user.errors.count, "error") %> Error al registrar al usuario:</h2>
+
+            <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="row">
+  <div class="col-lg-12 ">
+      <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"> <b>Registro de Investigadores</b></h3>
+              </div>
+         <div class="panel-body">
+
+         <br/>
+         <br/>
+
+        <div class="row">
+
+                  <div class="col-lg-3 col-lg-offset-1">
+
+                      <div class="control-group">
+                       <%= f.label :id, "Cedula:" %>
+                        <div class="controls">
+                         <%= f.number_field :id, :id =>"cedula" %>
+
+                      </div>
+                        <%= error_span(@user[:id]) %>
+
+                      </div>  
+                  </div>
+                  <div class="col-lg-6 col-lg-offset-1">
+
+                      <div class="control-group">
+                       <%= f.label :email, "Correo:" %>
+                        <div class="controls">
+                         <%= f.email_field :email %>
+
+                      </div>
+                        <%= error_span(@user[:email]) %>
+                      </div>  
+                  </div>
+         </div>
+            <br/>
+            <br/>
+            <div class="row">
+                  <div class="col-lg-4 col-lg-offset-1">
+                           <div class="control-group">
+                            <%= f.label :nombre1, "Primer Nombre:" ,:class => 'control-label' %>
+                            <div class="controls">
+                              <%= f.text_field :nombre1, :class => 'form-control' %>
+                            </div>
+                            <%= error_span(@user[:nombre1]) %>
+                          </div>
+                  </div> 
+                   <div class="col-lg-4 col-lg-offset-1">
+                           <div class="control-group">
+                            <%= f.label :nombre2, "Segundo Nombre:" ,:class => 'control-label' %>
+                            <div class="controls">
+                              <%= f.text_field :nombre2, :class => 'form-control' %>
+                            </div>
+                            <%= error_span(@user[:nombre2]) %>
+                          </div>
+                  </div> 
+
+            </div>
+            <br/>
+            <br/>
+            <div class="row">
+                  <div class="col-lg-4 col-lg-offset-1">
+                           <div class="control-group">
+                            <%= f.label :apellido1, "Primer Apellido:" ,:class => 'control-label' %>
+                            <div class="controls">
+                              <%= f.text_field :apellido1, :class => 'form-control' %>
+                            </div>
+                            <%= error_span(@user[:apellido1]) %>
+                          </div>
+                  </div> 
+                   <div class="col-lg-4 col-lg-offset-1">
+                           <div class="control-group">
+                            <%= f.label :apellido2, "Segundo Apellido:" ,:class => 'control-label' %>
+                            <div class="controls">
+                              <%= f.text_field :apellido2, :class => 'form-control' %>
+                            </div>
+                            <%= error_span(@user[:apellido2]) %>
+                          </div>
+                  </div> 
+
+            </div>
+            <br/>
+            <br/>
+              <div class="row">        
+
+                  <div class="col-lg-2 col-lg-offset-1">
+                           <div class="control-group">
+                            <%= f.label :tlf, "Telefono:" ,:class => 'control-label' %>
+                            <div class="controls">
+                              <%= f.text_field :tlf, :class => 'form-control' , required: "true", placeholder: "04XX-1234567" %>
+                            </div>
+                            <%= error_span(@user[:tlf]) %>
+                          </div>
+                  </div> 
+
+                  <div class="control-group col-lg-3 col-lg-offset-1">
+                        <%= f.label :rol, "Rol:", :class => 'control-label' %>
+                        <div class="controls">
+                          <select required name="user[rol]" class='form-control' >
+
+                            <option selected = <%=f.object.rol%> > <%=f.object.rol %></option>
+                            <option value="administrador">Administrador</option>
+                            <option value="Jefe de Departamento">Jefe de Departamento</option>
+                            <option value="investigador">Investigador</option>
+                            
+                        </select>
+                        </div>
+                        <%= error_span(@user[:rol]) %>
+                  </div>
+            </div>
+
+
+            <br/>
+            <br/>
+            <div class="row">
+
+                  <div class="col-lg-9 col-lg-offset-1">
+
+                      
+                      <div class="control-group">
+                        <%= f.label :Direccion, "Dirección:", :class => 'control-label' %>
+                        <div class="controls">
+                   
+                          <%= f.text_area :direccion,"cols" => 10, "rows" => 4, :class => 'form-control', required: "true"%>
+                        </div>
+                        <%= error_span(@user[:direccion]) %>
+                      </div>
+                </div>
+              </div>
+                  <br/> <br/> 
+                     
+              <div class="row">
+                  <div class=" controls col-lg-3 col-lg-offset-1">     
+                       <div class="field">
+                          <%= f.label :dedicacion,"Dedicación:"%><br>
+                          <%= f.text_field :dedicacion %>
+                         </div>
+           
+                </div>
+                <div class=" controls col-lg-3 ">     
+                      <div class="field">
+                      <%= f.label :cargo, "Cargo:" %><br>
+                      <%= f.text_field :cargo %>
+                    </div> 
+                    
+                </div>
+                 <div class=" controls col-lg-3 ">     
+                      <div class="field">
+                      <%= f.label :area, "Área:" %><br>
+                       <div class="controls">
+                          <select required name="user[area]" class='form-control' >
+
+                            <option  disabled="disabled" selected=<%=f.object.area%> > <%=f.object.area %></option>
+                            <option value="Área de Investigación">Área de Investigación</option>
+                            <option value="Área de Docencia">Área de Docencia</option>
+                            <option value="Área de Extensión">Área de Extensión</option>
+                            <option value="Área de Estación Experimental">Área de Estación Experimental</option>
+                            <option value="Área de Asistencia Administrativa">Área de Asistencia Administrativa</option>
+                            
+                        </select>
+                        </div>
+                    </div> 
+                    
+                </div>
+             </div>
+
+              <br/>  <br/>
+             <div class="row">
+                      <div class=" controls col-lg-3 col-lg-offset-1">     
+                           <div class="field">
+                              <%= f.label :categoria_actual, "Categoria Actual:" %><br>
+                              <%= f.text_field :categoria_actual %>
+                            </div>
+                       </div>
+                        <div class=" controls col-lg-3 ">     
+                          <div class="field">
+                            <%= f.label :anos_serv, "Años de Servicio:" %><br>
+                           <%= f.number_field :anos_serv %>
+                        </div> 
+                        
+                    </div>
+                    <div class=" controls col-lg-3 ">     
+                          <div class="field">
+                             <%= f.label :adscrito, "Adscrito:" %><br>
+                            <%= f.text_field :adscrito %>
+                        </div> 
+                        
+                    </div>
+             </div>
+<br/>  <br/>
+               <div class="row">
+                      <div class=" controls col-lg-3 col-lg-offset-1">     
+                           <div class="field">
+                             <%= f.label :fecha_ult_ascenso, "Fecha Último Ascenso:" %><br>
+                              <%= f.date_select :fecha_ult_ascenso %>
+                            </div>
+                       </div>
+
+                        <div class=" controls col-lg-3 ">     
+                          <div class="field">
+                            <%= f.label :grado_academico, "Grado Académico:" %><br>
+                            <%= f.text_field :grado_academico %>
+                           </div> 
+                        </div> 
+
+
+                        <div class=" controls col-lg-3 ">     
+                        <div class="field">
+                          <%= f.label :estatus_user, "Estatus del investigador:" %>
+                          <br>
+                             <div class="controls">
+                                <select required name="user[estatus_user]" class='form-control' >
+
+                                  <option  disabled="disabled" selected=<%=f.object.estatus_user%> > <%=f.object.estatus_user %></option>
+                                  <option value="Activo">Activo</option>
+                                  <option value="Jubilado">Jubilado</option>
+                                  <option value="Permiso no remunerado">Permiso no remunerado</option>
+                                </select>
+                              </div>
+                        </div> 
+                      </div>
+               </div>
+               
+
+
+              <br/>  <br/>
+             </div>
+              <div class="row">
+                    <div class="col-lg-6 col-lg-offset-4"> 
+                       <%= link_to 'Regresar', usuarios_listar_path , :class=> 'btn btn-primary active'%>
+                       &nbsp;&nbsp;&nbsp;
+                        <%= f.submit 'Registrar' , :class => 'btn btn-success btn-lg active' %>
+                         &nbsp;&nbsp;&nbsp;
+                        <%= f.submit 'Borrar', type: :reset , :class => 'btn btn-primary active' %>
+                     </div>
+              </div>
+
+            <br/>  <br/>
+            
+          </div><!-- panel-body  -->
+      </div><!-- panel panel-primary  -->
+    </div><!-- col-lg-12  -->
+  </div>   <!-- row  --> 
+
+
+
+<% end %>

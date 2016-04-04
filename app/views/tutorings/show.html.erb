@@ -1,0 +1,92 @@
+<%- model_class = Tutoring -%>
+
+<div class="row">
+  <div class="col-lg-10 col-lg-offset-1">
+      <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"> <b>Actividad en detalle: &nbsp;Tutoría</b></h3>
+              </div>
+         <div class="panel-body">
+
+               <br/>
+
+          <div class="row">   
+            <div class="col-lg-7 col-lg-offset-2">
+               <div class="alert alert-info" role="alert">
+                  <h4 class="text-center"> Edite la actividad para asociarla con otros investigadores</h4>
+                      </div>
+
+                        
+                </div>
+             </div>
+            <br/>
+                <div class="row">
+                      <div class="col-lg-4 col-lg-offset-1"> 
+                         
+                         <%= link_to "Generar documento (PDF)", tutoring_path(@tutoring, :format => 'pdf'), :class=> 'btn btn-info  active' %>
+                       </div>
+                     </div>
+                  <br/> <br/> 
+            
+               <dl class="dl-horizontal">
+                    <dt><strong>Tipo:</strong></dt>
+                    <dd><%= @tutoring.tipo %></dd>
+                    <br/>
+                    <dt><strong>Nombre:</strong></dt>
+                    <dd><%= @tutoring.nombre %></dd>
+                    <br/>
+                    <dt><strong>Descripción:</strong></dt>
+                    <dd><%= @tutoring.descripcion %></dd>
+                    <br/>
+                    <dt><strong>Horas:</strong></dt>
+                    <dd><%= @tutoring.horas %></dd>
+                    <br/>
+                    <dt><strong>Fecha Inicio:</strong></dt>
+                    <dd><%= @tutoring.fecha_i %></dd>
+                    <br/>
+                    <dt><strong>Fecha Fin:</strong></dt>
+                    <dd><%= @tutoring.fecha_f %></dd>
+                    <br/>
+                    <dt><strong>Año Periodo:</strong></dt>
+                    <dd><%= @tutoring.ano_periodo %></dd>
+                    <br/>
+                  <dt><strong>Creador por:</strong></dt>
+                    <dd> <p class="text-uppercase"><%= @userr.nombre1 %>&nbsp;<%= @userr.apellido1 %> </p></dd>
+                    <br/>
+                    
+                  </dl>
+
+                  <div class="row">
+                      <div class="col-lg-10 col-lg-offset-2">
+                          <p>
+                         <ins> <h3><b>Investigadores asociados a la actividad:</b> </h3></ins>
+                          </p>
+                          <br/>
+                          <ul>
+                          <% @tutoring.users.each do |user| %>
+                          <div class="col-lg-5">
+                            <h4> <li> <p class="text-uppercase"> <b><%= user.nombre_apellido %></b> </p> </li> </h4>
+                            </div>
+                          <% end %>
+                          </ul>
+                  </div></div>
+
+                  <br/> <br/><br/>
+
+                     <div class="row">
+                      <div class="col-lg-4 col-lg-offset-4"> 
+                         <%= link_to 'Regresar', menu_docencia_2_path , :class=> 'btn btn-primary  active'%>
+                         &nbsp;&nbsp;&nbsp;
+                         <%= link_to 'Editar', docencia_tutoria_modificar_path(@tutoring) , :class=> 'btn btn-success btn-md active'%>
+                         &nbsp;&nbsp;&nbsp;
+                         <%= link_to 'Eliminar', @tutoring, method: :delete, data: { confirm: '¿Esta seguro que desea eliminar la actividad?' }, :class=> 'btn btn-primary  active'%>
+                       </div>
+                     </div>
+
+                  <br/> 
+            
+          </div><!-- panel-body  -->
+      </div><!-- panel panel-primary  -->
+    </div><!-- col-lg-12  -->
+  </div>   <!-- row  --> 
+

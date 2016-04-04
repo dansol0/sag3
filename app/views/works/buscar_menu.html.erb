@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-lg-8  col-lg-offset-2">
+      <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"> <b> Menú buscar: &nbsp;Jurado </b></h3>
+              </div>
+         <div class="panel-body">
+
+                <br/>
+            
+		      <div class="row ">
+			 <div class="col-lg-6 col-lg-offset-3 ">
+	            <%= link_to docencia_trabajos_buscar_investigador_path do %> 
+	            	<button type="button" class="btn btn-info btn-md btn-block"><b>Buscar por investigador</b></button>
+	            <% end %><br/>
+	            <%= link_to docencia_trabajos_buscar_titulo_path do %> 
+					<button type="button" class="btn btn-info btn-md btn-block"><b>Buscar por nombre de actividad</b></button>
+				<% end %><br/>
+				<%= link_to docencia_trabajos_buscar_path do %> 
+					<button type="button" class="btn btn-info btn-md btn-block"><b>Buscar por año y tipo de actividad</b></button>
+				<% end %><br/>
+				<%= link_to docencia_trabajos_buscar_fechas_path do %> 
+					<button type="button" class="btn btn-info btn-md btn-block"><b>Buscar por rango de fechas</b></button>
+				<% end %>
+			</div>
+			</div>	
+
+			<br/>
+			<div class="actions">
+            <div class="row">
+                      <div class="col-lg-6 col-lg-offset-5"> 
+                         <%= link_to 'Regresar', buscar_por_area_path , :class=> 'btn btn-success btn-md active'%>
+                         
+                       </div>
+                </div>
+              </div>
+   </div><!-- panel-body  -->
+      </div><!-- panel panel-primary  -->
+    </div><!-- col-lg-12  -->
+  </div>   <!-- row  -->   

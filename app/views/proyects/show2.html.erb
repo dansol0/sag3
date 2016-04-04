@@ -1,0 +1,98 @@
+<%- model_class = Proyect -%>
+
+<div class="row">
+  <div class="col-lg-10 col-lg-offset-1">
+      <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"> <b>Actividad en detalle: &nbsp;Proyecto</b></h3>
+              </div>
+         <div class="panel-body">
+
+                <br/>
+
+         
+                <div class="row">
+                      <div class="col-lg-4 col-lg-offset-1"> 
+                         
+                         <%= link_to "Generar documento (PDF)", proyect_path(@proyect, :format => 'pdf'), :class=> 'btn btn-info  active' %>
+                       </div>
+                     </div>
+                  <br/> <br/> 
+            
+               <dl class="dl-horizontal">
+                    <dt><strong>Titulo:</strong></dt>
+                    <dd><%= @proyect.titulo %></dd>
+                     <br/>
+                    <dt><strong>Estatus:</strong></dt>
+                    <dd><%= @proyect.estatus %></dd>
+                     <br/>
+                    <dt><strong>Ente Financista:</strong></dt>
+                    <dd><%= @proyect.ente_financista %></dd>
+                     <br/>
+                    <dt><strong>Integrantes:</strong></dt>
+                    <dd><%= @proyect.integrantes %></dd>
+                     <br/>
+                     <dt><strong>Investigador Responsable:</strong></dt>
+                    <dd><p class="text-uppercase"><%= @userr2.nombre1 %>&nbsp;<%= @userr2.apellido1 %></p></dd>
+                     <br/>
+                     <dt><strong>Co-Investigador:</strong></dt>
+                    <dd><p class="text-uppercase"><%= @userr3.nombre1 %>&nbsp;<%= @userr3.apellido1 %></p></dd>
+                     <br/>
+                     <dt><strong>Proyecto en grupo o individual:</strong></dt>
+                    <dd><%= @proyect.grupo_o_individual %></dd>
+                     <br/>
+                    <dt><strong>Monto:</strong></dt>
+                    <dd><%= @proyect.bolivares %></dd>
+                     <br/>
+                    <dt><strong>Descripción:</strong></dt>
+                    <dd><%= @proyect.descripcion %></dd>
+                     <br/>
+                    <dt><strong>Horas:</strong></dt>
+                    <dd><%= @proyect.horas %></dd>
+                     <br/>
+                    <dt><strong>Fecha Inicio:</strong></dt>
+                    <dd><%= @proyect.fecha_i %></dd>
+                     <br/>
+                    <dt><strong>Fecha Fin:</strong></dt>
+                    <dd><%= @proyect.fecha_f %></dd>
+                     <br/>
+                    <dt><strong>Año Periodo</strong></dt>
+                    <dd><%= @proyect.ano_periodo %></dd>
+                     <br/>
+                     <dt><strong>Creador por:</strong></dt>
+                    <dd> <p class="text-uppercase"><%= @userr.nombre1 %>&nbsp;<%= @userr.apellido1 %> </p></dd>
+                    <br/>
+                    
+                  </dl>
+
+                  <div class="row">
+                      <div class="col-lg-10 col-lg-offset-2">
+                          <p>
+                         <ins> <h3><b>Investigadores asociados a la actividad:</b> </h3></ins>
+                          </p>
+                          <br/>
+                          <ul>
+                          <% @proyect.users.each do |user| %>
+                          <div class="col-lg-5">
+                            <h4> <li> <p class="text-uppercase"> <b><%= user.nombre_apellido %></b> </p> </li> </h4>
+                            </div>
+                          <% end %>
+                          </ul>
+                  </div></div>
+
+                  <br/> <br/><br/>
+
+                     <div class="row">
+                      <div class="col-lg-4 col-lg-offset-4"> 
+                        
+                         
+                       </div>
+                     </div>
+
+                  <br/> 
+            
+          </div><!-- panel-body  -->
+      </div><!-- panel panel-primary  -->
+    </div><!-- col-lg-12  -->
+  </div>   <!-- row  --> 
+

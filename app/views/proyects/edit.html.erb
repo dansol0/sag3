@@ -1,0 +1,245 @@
+<%= form_for @proyect, :html => { :class => "form-horizontal proyect" } do |f| %>
+
+    <% if @proyect.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@proyect.errors.count, "error o errores") %> al guardar la actividad:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @proyect.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+<div class="row">
+  <div class="col-lg-12 ">
+      <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"> <b>Modificar:   &nbsp;Proyectos </b></h3>
+              </div>
+         <div class="panel-body">
+
+          <br/>
+          <br/>
+
+            <div class="row">
+                 <div class="control-group col-lg-7 col-lg-offset-1">
+                    <%= f.label :titulo,"Titulo:", :class => 'control-label' %>
+                    <div class="controls">
+                      <%= f.text_field :titulo, :class => 'form-control', required: "true" %>
+                    </div>
+                    <%= error_span(@proyect[:titulo]) %>
+                  </div>
+            
+            </div>
+
+          <br/>
+          <br/>
+            <div class="row">
+                 <div class="control-group col-lg-3 col-lg-offset-1">
+                    <%= f.label :estatus, "Estatus:",:class => 'control-label' %>
+                    
+                          <div class="controls">
+                            <select required name="proyect[estatus]" class='form-control' >
+                              <option   selected=<%=f.object.estatus%> > <%=f.object.estatus %></option>
+                              <option value="En Espera de Aprobación">En Espera de Aprobación</option>
+                              <option value="En desarrollo">En desarrollo</option>
+                              <option value="Culminado">Culminado</option>
+                             </select>
+                           </div>
+                     </div>
+                    
+                  <div class="control-group col-lg-3 col-lg-offset-1">
+                    <div class="control-group">
+                        <%= f.label :ente_financista, "Ente financista:", :class => 'control-label' %>
+                        <div class="controls">
+                              <%= f.text_field :ente_financista, :class => 'form-control' , readonly: "true" %>
+                            </div>
+                        <%= error_span(@proyect[:ente_financista]) %>
+                      </div>  
+                  
+                  </div>
+
+                  <div class="control-group col-lg-2 col-lg-offset-1">
+                  <%= f.label :monto,"Monto en Bolivares:" ,:class => 'control-label' %>
+                  <div class="controls">
+                   <%= f.number_field :monto, :class => 'form-control' , in: 1.00..1000000000000.00, step: 0.5,  placeholder: "1000.00" %>
+                  
+                  </div>
+                  <%= error_span(@proyect[:monto]) %>
+                </div>
+
+            
+            </div>
+
+          <br/>
+          <br/>
+            <div class="row">
+                <div class="col-lg-3 col-lg-offset-1">
+                  <div class="control-group">
+                      <%= f.label :fecha_i,"Fecha Inicio:", :class => 'control-label' %>
+                      <div class="controls">
+                        <%= f.date_field :fecha_i, :class => 'form-control', min: "2015-01-01", required: "true"  %>
+                      </div>
+                      <%= error_span(@proyect[:fecha_i]) %>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-lg-offset-1">
+                    <div class="control-group">
+                      <%= f.label :fecha_f, "Fecha Fin:",:class => 'control-label' %>
+                      <div class="controls">
+                        <%= f.date_field :fecha_f, :class => 'form-control', max: Date.today %>
+                      </div>
+                      <%= error_span(@proyect[:fecha_f]) %>
+                    </div>
+              </div>
+            </div>
+
+          <br/>
+          <br/>
+            <div class="row">
+                <div class="control-group col-lg-2 col-lg-offset-1">
+                  <%= f.label :horas, :class => 'control-label' %>
+                  <div class="controls">
+                    <%= f.text_field :horas, :class => 'form-control' %>
+                  </div>
+                  <%= error_span(@proyect[:horas]) %>
+                </div>
+               
+                <div class="control-group col-lg-2 col-lg-offset-2">
+                  <%= f.label :ano_periodo, :class => 'control-label' %>
+                  <div class="controls">
+                     <%= f.number_field :ano_periodo, :class => 'form-control', min:"2015", max:"2050", readonly: "true" %>
+                  </div>
+                  <%= error_span(@proyect[:ano_periodo]) %>
+                </div>
+            
+            </div>
+            <br/>
+            <br/>
+             <div class="row">
+                  <div class="control-group col-lg-3 col-lg-offset-1"> 
+                  <%= f.label :investigador_responsable, "Investigador responsable:" ,:class => 'control-label' %>
+                     <div class="controls">  
+                        <%= f.select :investigador_responsable, User.all.collect {|p| [ p.nombre_apellido, p.id ] },{include_blank: true } , {class: "form-control"} %>
+                     </div>
+                     <%= error_span(@proyect[:investigador_responsable]) %>
+                    </div>
+
+                    <div class="control-group col-lg-3 col-lg-offset-1">
+                    <%= f.label :co_investigador,"Co-investigador:", :class => 'control-label' %>   
+                      <div class="controls">  
+                        <%= f.select :co_investigador, User.all.collect {|p| [ p.nombre_apellido, p.id ] },{include_blank: true } , {class: "form-control"}  %>
+                         </div>
+                     <%= error_span(@proyect[:co_investigador]) %>
+                    </div>
+
+              </div>
+
+                 <br/>
+            <br/>
+          <div class="row">
+          <div class="control-group col-lg-3 col-lg-offset-1"> 
+             <%= f.label :grupo_o_individual,"Seleccione si es en grupo o individual:", :class => 'control-label' %>
+                     <div class="controls">
+                            <select required name="proyect[grupo_o_individual]" class='form-control' >
+                              <option   selected=<%=f.object.grupo_o_individual%> > <%=f.object.grupo_o_individual %></option>
+                              <option value="Grupo">Grupo</option>
+                              <option value="Individual">Individual</option>
+                             </select>
+                    </div>
+                    <%= error_span(@proyect[:grupo_o_individual]) %>
+             </div>
+             </div>
+
+            <br/>
+            <br/>
+             <div class="row">
+                <div class="control-group col-lg-9 col-lg-offset-1">
+                  <%= f.label :integrantes, :class => 'control-label' %>
+                  <div class="controls">
+                    <%= f.text_field :integrantes, :class => 'form-control' %>
+                  </div>
+                  <%= error_span(@proyect[:integrantes]) %>
+                </div>
+            
+            </div>
+
+             <br/>
+            <br/>
+            <div class="row">
+                 <div class="control-group col-lg-9 col-lg-offset-1">
+                    <%= f.label :descripcion, "Descripción:", :class => 'control-label' %>
+                    <div class="controls">
+                      <%= f.text_area :descripcion,"cols" => 9, "rows" => 5, :class => 'form-control', required: "true" %>
+                    </div>
+                    <%= error_span(@proyect[:descripcion]) %>
+                  </div>
+            
+            </div>
+              <br/>
+
+            <div class="row">     
+                   <div class="control-group col-lg-10 col-lg-offset-2">
+                     
+                        <h4><%= f.label 'Seleccione a los investigadores que desea asociar a esta actividad:' %> </h4>
+                        
+                             <br>
+                        
+                       <div class="controls">
+                             
+                            <% @users.each  do |user|  %>
+                            <div class="col-lg-5">
+                              <p class="text-uppercase">  <%= check_box_tag "proyect[user_ids][#{user.id}]",nil, @proyect.users.member?(user) %>
+                              <%= user.nombre_apellido %> </p>
+                              </div>
+                              <br> <br>
+                          <% end %>
+                          
+                       </div>
+                         
+                     </div>
+                </div>
+
+                 <div class="row">
+
+                  <div class="col-lg-9 col-lg-offset-1">
+     
+                 <div class="control-group">
+                      <%= f.hidden_field :creador, :value => current_user.id %>
+                
+                      </div>
+                      <%= error_span(@proyect[:creador]) %>
+
+                </div>
+              </div>
+
+            <br/>
+            <br/>
+
+                     
+              
+                <div class="row">
+
+                    <div class="col-lg-4 col-lg-offset-4"> 
+                       <%= link_to 'Regresar', menu_investigacion_1_path , :class=> 'btn btn-primary active'%>
+                       &nbsp;&nbsp;&nbsp;
+                        <%= f.submit 'Registrar' , :class => 'btn btn-success btn-lg active' %>
+                         &nbsp;&nbsp;&nbsp;
+                        <%= f.submit 'Borrar', type: :reset , :class => 'btn btn-primary active' %>
+                     </div>
+              </div>
+            <br/>
+            
+          </div><!-- panel-body  -->
+      </div><!-- panel panel-primary  -->
+    </div><!-- col-lg-12  -->
+  </div>   <!-- row  --> 
+
+
+<% end %>
+

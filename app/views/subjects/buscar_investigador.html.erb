@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2">
+      <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"> <b> Buscar por investigador: &nbsp;Dictado de asiganturas</b></h3>
+              </div>
+         <div class="panel-body">
+
+                <br/>
+                <br/>
+
+      <%=bootstrap_form_tag url: docencia_asignatura_resultados_path do |f|%>
+
+              <div class="row">
+                  <div class="col-lg-8 col-lg-offset-2">   
+                    <%= f.select :user_ids, options_from_collection_for_select(@users, :id, :nombre_apellido), label: "Seleccione un investigador:"%>
+                    
+                    </div>
+              </div>
+              <br/> <br/>
+             
+              <%= f.hidden_field :opcion, :value => 1 , :class => 'form-control' %>
+              <div class="row">
+                  <div class="col-lg-6 col-lg-offset-4">
+                  <%= link_to 'Regresar', docencia_asignatura_buscar_menu_path , :class=> 'btn btn-success btn-md active'%>
+                         &nbsp;&nbsp;&nbsp;
+              <%= f.submit "Buscar", :class => 'btn btn-success btn-md active'  %>
+              </div>
+              </div>
+           <% end %>   
+
+         </div><!-- panel-body  -->
+      </div><!-- panel panel-primary  -->
+    </div><!-- col-lg-12  -->
+  </div>   <!-- row  -->

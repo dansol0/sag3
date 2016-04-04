@@ -1,0 +1,70 @@
+<br/>
+<div class="row">
+  <div class="col-lg-10  col-lg-offset-1">
+      <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"> <b> Menú Generar Tablas
+              </div>
+         <div class="panel-body">
+
+                <br/><br/>
+            
+		      <div class="row ">
+			 <div class="col-lg-8 col-lg-offset-2 ">
+	            <%= link_to herramientas_tabla_jefe_de_departamento_del_idec_path do %> 
+	            	<button type="button" class="btn btn-info btn-lg btn-block" ><b>Jefes de departamento del IDEC </b></button>
+	            <% end %><br/><br/>
+	          
+
+				</div>
+				</div>
+
+			<div class="row ">
+	               	 <div class="col-lg-8 col-lg-offset-2">
+			  			<div class="btn-group ">
+						  <button type="button" class="btn btn-info btn-lg  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <b> &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;Actividades realizadas a través del Dpto. de Extensión &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</b>
+						 <span class="caret"></span>
+						  </button>
+						  <ul class="dropdown-menu">
+						  <li><%=link_to "Comisión u organización externas",herramientas_tabla_extension_otra_path(:opcion => 1)%></li>
+						  <li role="separator" class="divider"></li>
+						  <li> <%=link_to "Redes",herramientas_tabla_extension_otra_path(:opcion => 2)%></li>
+						  <li role="separator" class="divider"></li>
+						   <li><%=link_to "Proyectos de aplicación",herramientas_tabla_extension_otra_path(:opcion => 3)%></li>
+						 <li role="separator" class="divider"></li>
+						  <li> <%= link_to 'Asistencia a eventos nacionales o internacionales',herramientas_tabla_extension_otra_path(:opcion => 4) %></li>
+                         <li role="separator" class="divider"></li>
+						   <li><%= link_to 'Divulgación y/o asistencias técnicas',herramientas_tabla_extension_otra_path(:opcion => 5)  %></li>
+                         <li role="separator" class="divider"></li>
+						   <li><%= link_to 'Arbitrajes (articulos, ponencias, proyectos, etc.)',herramientas_tabla_extension_otra_path(:opcion => 6)  %></li>
+						  <li role="separator" class="divider"></li>
+						  <li><%= link_to 'Comités organizadores de eventos',herramientas_tabla_extension_otra_path(:opcion => 7)  %></li>
+						  <li role="separator" class="divider"></li>
+						  <li><%= link_to 'Otras actividades de extensión',herramientas_tabla_extension_otra_path(:opcion => 8) %></li>
+						  </ul>
+						</div>
+						</div>
+						</div>
+					  
+
+				  	<br/><br/>
+		 <div class="row ">
+			 <div class="col-lg-8 col-lg-offset-2 ">
+               <%= link_to herramientas_tabla_profesores_ordinarios_path do %> 
+					<button type="button" class="btn btn-info btn-lg btn-block"><b> Profesores ordinarios por área de investigación y estatus</b></button>
+				<% end %><br/><br/>
+			
+				<%= link_to herramientas_tabla_resumen_totalizador_de_investigaciones_path do %> 
+					<button type="button" class="btn btn-info btn-lg btn-block"><b> Resumen totalizador de investigaciones</b></button>
+				<% end %><br/><br/>
+				<%= link_to herramientas_tabla_resumen_totalizador_de_asignaturas_de_postgrado_pregrado_path do %> 
+					<button type="button" class="btn btn-info btn-lg btn-block"><b> Resumen totalizador de asignaturas</b></button>
+				<% end %><br/><br/>
+			</div>
+			</div>	
+			
+			
+   </div><!-- panel-body  -->
+      </div><!-- panel panel-primary  -->
+    </div><!-- col-lg-12  -->
+  </div>   <!-- row  -->   

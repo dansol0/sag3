@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  titulo: MyString
+  revista_editorial: MyString
+  arbitr_no_arbitr: MyString
+  descripcion: MyText
+  horas: 1
+  fecha_i: 2015-10-06
+  fecha_f: 2015-10-06
+  ano_periodo: 1
+  creador: 1
+
+two:
+  titulo: MyString
+  revista_editorial: MyString
+  arbitr_no_arbitr: MyString
+  descripcion: MyText
+  horas: 1
+  fecha_i: 2015-10-06
+  fecha_f: 2015-10-06
+  ano_periodo: 1
+  creador: 1

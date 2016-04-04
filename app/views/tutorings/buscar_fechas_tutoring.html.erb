@@ -1,0 +1,43 @@
+
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3 ">
+      <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"> <b> Buscar por rango de fechas: &nbsp; Tutorías </b></h3>
+              </div>
+       <div class="panel-body">
+
+          <br/> 
+           <%= bootstrap_form_tag url: docencia_tutoria_resultados_path do |f|%>
+
+            
+                  <div class="row">
+                  <div class="col-lg-8 col-md-offset-2">
+                  <%= f.text_field :fecha_desde, :class => 'form-control datepicker', required: "true", label: "Desde:", placeholder: "dd/mm/yyyy", :append =>"<i class='glyphicon glyphicon-calendar'></i>".html_safe %>
+                   </div>
+              </div>
+              <br/> 
+
+              
+              <div class="row">
+                  <div class="col-lg-8 col-lg-offset-2 "> 
+                 
+                      <%= f.text_field :fecha_hasta, :class => 'form-control datepicker', placeholder: "dd/mm/yyyy", label: "Hasta:", required: "true", :append =>"<i class='glyphicon glyphicon-calendar'></i>".html_safe %>
+                    </div>
+              </div>
+              <br/> <br/>
+                   <%= f.hidden_field :opcion, :value => 4 , :class => 'form-control' %>
+              <div class="row">
+                  <div class="col-lg-6 col-lg-offset-4">
+                  <%= link_to 'Regresar', docencia_tutoria_buscar_menu_path , :class=> 'btn btn-success btn-md active'%>
+                         &nbsp;&nbsp;&nbsp;
+              <%= f.submit "Buscar", :class => 'btn btn-success btn-md active'  %>
+              </div>
+              </div>
+           <% end %>   
+<br/>
+  
+      </div><!-- panel-body  -->
+    </div><!-- panel panel-primary  -->
+   </div><!-- col-lg-12  -->
+</div>   <!-- row  -->

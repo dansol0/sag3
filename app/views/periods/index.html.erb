@@ -1,0 +1,90 @@
+<br/>
+<%- model_class = Period -%>
+ <div class="row">
+  <div class="col-lg-10 col-lg-offset-1">
+            <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title"> <b>Menu de gestión de períodos</b></h3>
+            </div>
+              <div class="panel-body">
+
+<br/><br/>
+      <div class="row ">
+         <div class="col-lg-8 col-lg-offset-2 ">
+          <ul class="nav nav-tabs nav-justified">
+            <li role="presentation" > <%= link_to "CONSULTAR PERÍODOS", lista_periodos_path, :class=> 'btn btn-info  active' %></li>
+            <li role="presentation"><%= link_to "CREAR PERÍODO", crear_periodo_actual_path, :class=> 'btn btn-info  active' %></li>
+          
+          </ul>
+          </div>
+        </div>  
+
+            <br/><br/><br/><br/>
+            <div class="row">
+                    <div class="col-lg-4 col-lg-offset-1">
+                      
+                          <div class="alert alert-info" role="alert">
+                            <h5 > <em><b> Cantidad de períodos creados: &nbsp; <%=@resultados %> </b></em></h5> 
+                          </div>
+                      </div> 
+                    </div>
+            <br/>
+          
+      <div class="row">
+            <div class="col-lg-7 col-lg-offset-4">
+            <%= paginate @periods2, :theme => 'twitter-bootstrap-3',:pagination_class => "pagination-md pagination-centered" %>
+            </div>
+        <div class="row">   
+            <div class="col-lg-7 col-lg-offset-3">
+                    <div class="table-responsive">
+                          
+
+                        
+                      <table class="table table-striped table-bordered  ">
+                        <thead>
+                          <tr>
+                           <th style="width: 30%"><%= model_class.human_attribute_name("Período") %></th>
+                            
+                            <th style="width: 30%"><%= model_class.human_attribute_name("Estatus") %></th>
+                            
+                            <th style="width: 30%"><%=t '.actions', :default => t("helpers.Acción") %></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        <br/>
+                              <% if @periods.blank? %>
+                                <h4> <b>&nbsp;&nbsp; No se encontro ningun período ya creado </b></h4>
+                                <br/>
+                              <%else%>
+                          <% @periods.each do |period| %>
+                            <tr>
+                              
+                              <td><%= period.ano_periodo %></td>
+                              <td><%= period.estatus %></td>
+                                
+                              <td>
+                              <%= link_to 'Mostrar', mostrar_periodo_path(period) , :class=> 'btn btn-info btn-xs active'%>
+                               <%= link_to 'Editar', cambiar_periodo_path(period) , :class=> 'btn btn-warning btn-xs active'%>
+                                <%= link_to 'Eliminar', period, method: :delete, data: { confirm: '¿Esta seguro que desea eliminar el período?' }, :class=> 'btn btn-danger btn-xs active'%>
+
+                              </td>
+                            </tr>
+                          <% end %>
+                          <%end%>
+                        </tbody>
+                      </table>
+                      <br/><br/><br/>
+      
+            </div>
+
+        </div>    
+
+
+        </div>
+    </div>
+    
+
+
+  </div>
+</div>
+

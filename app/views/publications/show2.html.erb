@@ -1,0 +1,79 @@
+<%- model_class = Publication -%>
+<div class="row">
+  <div class="col-lg-10 col-lg-offset-1">
+      <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"> <b>Actividad en detalle: &nbsp;Publicación</b></h3>
+              </div>
+         <div class="panel-body">
+
+                <br/>
+
+        <div class="row">
+                      <div class="col-lg-4 col-lg-offset-1"> 
+                         
+                         <%= link_to "Generar documento (PDF)", publication_path(@publication, :format => 'pdf'), :class=> 'btn btn-info  active' %>
+                       </div>
+                     </div>
+                  <br/> <br/> 
+            
+               <dl class="dl-horizontal">
+                    <dt><strong>Titulo:</strong></dt>
+                    <dd><%= @publication.titulo %></dd>
+                    <br/>
+                    <dt><strong>Revista o Editorial:</strong></dt>
+                    <dd><%= @publication.revista_editorial %></dd>
+                    <br/>
+                    <dt><strong>Arbitrada o No Arbitrada:</strong></dt>
+                    <dd><%= @publication.arbitr_no_arbitr %></dd>
+                    <br/>
+                    <dt><strong>Descripción:</strong></dt>
+                    <dd><%= @publication.descripcion %></dd>
+                    <br/>
+                    <dt><strong>Horas:</strong></dt>
+                    <dd><%= @publication.horas %></dd>
+                    <br/>
+                    <dt><strong>Fecha Inicio:</strong></dt>
+                    <dd><%= @publication.fecha_i %></dd>
+                    <br/>
+                    <dt><strong>Fecha Fin:</strong></dt>
+                    <dd><%= @publication.fecha_f %></dd>
+                    <br/>
+                    <dt><strong>Año Periodo:</strong></dt>
+                    <dd><%= @publication.ano_periodo %></dd>
+                    <dt><strong>Creador por:</strong></dt>
+                    <dd> <p class="text-uppercase"><%= @userr.nombre1 %>&nbsp;<%= @userr.apellido1 %> </p></dd>
+                    <br/>
+                    
+                  </dl>
+
+                  <div class="row">
+                      <div class="col-lg-10 col-lg-offset-2">
+                          <p>
+                         <ins> <h3><b>Investigadores asociados a la actividad:</b> </h3></ins>
+                          </p>
+                          <br/>
+                          <ul>
+                          <% @publication.users.each do |user| %>
+                          <div class="col-lg-5">
+                            <h4> <li> <p class="text-uppercase"> <b><%= user.nombre_apellido %></b> </p> </li> </h4>
+                            </div>
+                          <% end %>
+                          </ul>
+                  </div></div>
+
+                  <br/> <br/><br/>
+
+                     <div class="row">
+                      <div class="col-lg-4 col-lg-offset-4"> 
+                        
+                       </div>
+                     </div>
+
+                  <br/> 
+            
+          </div><!-- panel-body  -->
+      </div><!-- panel panel-primary  -->
+    </div><!-- col-lg-12  -->
+  </div>   <!-- row  --> 
+

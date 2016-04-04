@@ -1,0 +1,107 @@
+<div class="row">
+  <div class="col-lg-10 col-lg-offset-1">
+      <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"> <b> Jefes de Departamento del IDEC</b></h3>
+              </div>
+         <div class="panel-body">
+
+                <br/><br/>
+           
+              <div class="col-lg-4 col-lg-offset-1">    
+                  <ul class="nav nav-tabs nav-justified">
+                    <li role="presentation"><%= link_to "GENERAR DOCUMENTO (PDF)", herramientas_tabla_jefe_de_departamento_del_idec_path(@users, :format => 'pdf'),  :class=> 'btn btn-info  active' %></li>
+                    </ul>
+              </div>
+          
+                <br/>
+                <br/>
+                 <br/>
+                <br/>
+ <div class="col-lg-10 col-lg-offset-1"> 
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th style="width: 45%"><%= "DEPARTAMENTO"%></th>
+          <th ><%="INVESTIGADOR DEL IDEC" %></th>
+                                
+        </tr>
+       </thead>
+
+        <tbody>
+           <tr>
+              
+              <% if @user1.blank? %>
+                   <td ><strong>Departamento de Investigación</strong></td>
+                   <td class="danger"> No se encontro ningun investigador con este cargo</td>
+              <%else%>
+                      <td ><strong>Departamento de Investigación</strong></td>
+                      <td > <%= @user1.nombre_apellido%></td>
+                        
+               <% end%>
+            </tr>
+
+            <tr>
+                <% if @user2.blank? %>
+                   <td><strong>Departamento de Docencia</strong></td>
+                   <td class="danger"> No se encontro ningun investigador con este cargo</td>
+              <%else%>
+                      <td><strong>Departamento de Docencia</strong></td>
+                      <td > <%= @user2.nombre_apellido%></td>
+                        
+               <% end%>
+            </tr>
+
+             <tr>
+                <% if @user3.blank? %>
+                   <td><strong>Departamento de Extensión</strong></td>
+                   <td class="danger"> No se encontro ningun investigador con este cargo</td>
+              <%else%>
+                      <td><strong>Departamento de Extensión</strong></td>
+                      <td > <%= @user3.nombre_apellido%></td>
+                        
+               <% end%>
+            </tr>
+
+            <tr>
+                <% if @user4.blank? %>
+                   <td><strong>Departamento de Estación Experimental</strong></td>
+                   <td class="danger"> No se encontro ningun investigador con este cargo</td>
+              <%else%>
+                      <td><strong>Departamento Estación Experimental</strong></td>
+                      <td > <%= @user4.nombre_apellido%></td>
+                        
+               <% end%>
+            </tr>
+            <tr>
+                <% if @user5.blank? %>
+                   <td><strong>Departamento de Asistencia Administrativa</strong></td>
+                   <td class="danger"> No se encontro ningun investigador con este cargo</td>
+              <%else%>
+                      <td><strong>Departamento Asistencia Administrativa</strong></td>
+                      <td > <%= @user5.nombre_apellido%></td>
+                        
+               <% end%>
+            </tr>
+
+        </tbody>
+    </table>   
+</div>
+ <br/>
+ <br/>
+ <br/>
+
+               
+               <div class="row">
+                  <div class="col-lg-6 col-lg-offset-5">
+                  <%= link_to 'Regresar', herramientas_tablas_path , :class=> 'btn btn-success btn-md active'%>
+                         &nbsp;&nbsp;&nbsp;
+                   </div>
+                </div>
+               <br/>
+               <br/>
+
+   </div><!-- panel-body  -->
+      </div><!-- panel panel-primary  -->
+    </div><!-- col-lg-12  -->
+  </div>   <!-- row  --> 

@@ -1,0 +1,97 @@
+<%- model_class = Coference -%>
+
+<div class="row">
+  <div class="col-lg-12 ">
+      <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"> <b> Consulta: &nbsp; Conferencias o ponencias </b></h3>
+              </div>
+         <div class="panel-body">
+
+                <br/><br/>
+          <div class="row">
+            <div class="col-lg-4 col-lg-offset-1">
+              
+                  <div class="alert alert-info" role="alert">
+                    <h4 > <em><b> Actividades encontradas: &nbsp; <%=@resultados %> </b></em></h4> 
+                  </div>
+               
+            </div>    
+              <div class="col-lg-4 col-lg-offset-1">    
+                  <ul class="nav nav-tabs nav-justified">
+                  
+                   <% if @coferences.blank? %>
+                  <li role="presentation"><%= link_to "GENERAR DOCUMENTO (PDF)", extension_conferencia_o_ponencia_resultados_path(@coferences, :format => 'pdf'), :method=> :post, :class=> 'btn btn-info  active', disabled: true %></li>
+                <%else%>
+                    <li role="presentation"><%= link_to "GENERAR DOCUMENTO (PDF)", extension_conferencia_o_ponencia_resultados_path(@coferences, :opcion => @opcion, :user_ids =>@user_id, :search=>@search, :tipo=> @tipo, :ano_periodo=>@ano_periodo ,:fecha_desde=> @fecha_desde, :fecha_hasta=>@fecha_hasta, :format => 'pdf'), :method=> :post, :class=> 'btn btn-info  active' %></li>
+                <% end %>
+                  
+                </ul>
+              </div> 
+          </div>
+                <br/>
+          <div class="row">
+            <div class="col-lg-7 col-lg-offset-3">
+            <%= paginate @coferences, :theme => 'twitter-bootstrap-3',:pagination_class => "pagination-md pagination-centered" %>
+            </div>
+            </div>
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th><%= model_class.human_attribute_name("id") %></th>
+              <th ><%= model_class.human_attribute_name("Tipo") %></th>
+              <th style="width: 45%"><%= model_class.human_attribute_name("Titulo") %></th>
+              <th><%= model_class.human_attribute_name("Evento") %></th>
+              <th><%= model_class.human_attribute_name("Fecha inicio") %></th>
+              <th><%= model_class.human_attribute_name("Ano periodo") %></th>
+              <th><%=t '.accions', :default => t("helpers.Acción") %></th>
+            </tr>
+          </thead>
+          <tbody>
+          <br/>
+          <% if @coferences.blank? %>
+            <h4> <b>&nbsp;&nbsp; No se encontro ninguna actividad para esta busqueda </b></h4>
+            <br/>
+          <%else%>
+
+            <% @coferences.each do |coference| %>
+
+              <tr>
+                <td><%= link_to coference.id, coference_path(coference) %></td>
+                <td><%= coference.tipo %></td>
+                <td><%= coference.titulo %></td>
+                <td><%= coference.evento %></td>
+                <td><%= coference.fecha_i %></td>
+                <td><%= coference.ano_periodo %></td>
+              
+                <td>
+                  <%= link_to 'Mostrar', extension_conferencia_o_ponencia_ver2_path(coference) , :class=> 'btn btn-info btn-xs active'%>
+                  <% if current_user.rol == "administrador" %>
+                                  <%= link_to 'Editar', extension_conferencia_o_ponencia_modificar_path(coference) , :class=> 'btn btn-warning btn-xs active'%>
+                                   <%= link_to 'Eliminar', coference, method: :delete, data: { confirm: '¿Esta seguro que desea eliminar la actividad?' }, :class=> 'btn btn-danger btn-xs active'%>
+                    <% end%>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+          </tbody>
+        </table>
+
+           <div class="row">
+            <div class="col-lg-7 col-lg-offset-3">
+              <%= paginate @coferences, :theme => 'twitter-bootstrap-3',:pagination_class => "pagination-md pagination-centered" %>
+             </div>
+          </div>
+       <br/>
+               <br/>
+               <div class="row">
+                  <div class="col-lg-6 col-lg-offset-5">
+                  <%= link_to 'Regresar', extension_conferencia_o_ponencia_buscar_menu_path , :class=> 'btn btn-success btn-md active'%>
+                         &nbsp;&nbsp;&nbsp;
+              </div>
+              </div>
+   </div><!-- panel-body  -->
+      </div><!-- panel panel-primary  -->
+    </div><!-- col-lg-12  -->
+  </div>   <!-- row  --> 

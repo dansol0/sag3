@@ -1,0 +1,83 @@
+<%- model_class = Proyect -%>
+<div class="row">
+  <div class="col-lg-12 ">
+      <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"> <b> Tabla de investigaciones individuales en espera por aprobación</b></h3>
+              </div>
+         <div class="panel-body">
+
+                <br/><br/>
+          <div class="row">
+            <div class="col-lg-5 col-lg-offset-1">
+              
+                  <div class="alert alert-info" role="alert">
+                    <h4 > <em><b> Actividades encontradas: &nbsp; <%=@cantidad_individual %> </b></em></h4> 
+                  </div>
+               
+            </div>    
+              <div class="col-lg-4 col-lg-offset-1">    
+                  <ul class="nav nav-tabs nav-justified">
+                  
+                   <% if @proyects.blank? %>
+                       <li role="presentation"><%= link_to "GENERAR DOCUMENTO (PDF)", herramientas_tabla_investigaciones_individual_en_espera_path(@proyects, :format => 'pdf'), :class=> 'btn btn-info  active', disabled: true %></li>
+                    <%else%>
+                         <li role="presentation"><%= link_to "GENERAR DOCUMENTO (PDF)", herramientas_tabla_investigaciones_individual_en_espera_path(@proyects, :format => 'pdf'), :class=> 'btn btn-info  active' %></li>
+                    <% end %>
+                      
+                </ul>
+              </div>
+          </div>
+                <br/>
+      <% unless @proyects_individual2.blank? %>
+          <div class="row">
+            <div class="col-lg-7 col-lg-offset-3">
+            <%= paginate @proyects_individual2, :theme => 'twitter-bootstrap-3',:pagination_class => "pagination-md pagination-centered" %>
+            </div>
+            </div>
+      <%end%>
+<table class="table table-striped">
+                        <thead>
+                          <tr>
+                           <th style="width: 50%"><%= model_class.human_attribute_name("Titulo") %></th>
+                            <th style="width:25%"><%= model_class.human_attribute_name("Investigador responsable") %></th>
+                            <th><%= model_class.human_attribute_name("Ente financiador") %></th>
+                            <th><%= model_class.human_attribute_name("Monto") %></th>
+                          </tr>
+                        </thead>
+                         <tbody>
+                            <br/>
+                            <% if @proyects.blank? %>
+                              <h4> <b>&nbsp;&nbsp; No se encontro ninguna actividad para esta busqueda </b></h4>
+                              <br/>
+                            <%else%>
+                          <% @proyects.each do |proyect| %>
+                            <tr>
+                               <td><%= proyect.titulo %></td>
+                                <td><%= proyect.investigador_responsable%></td>
+                             <td><%= proyect.ente_financista %></td>
+                              <td><%= proyect.monto %></td>
+                            </tr>
+                          <% end %>
+                          <% end %>
+                        </tbody>
+                      </table>
+<% unless @proyects_individual2.blank? %>
+              <div class="row">
+            <div class="col-lg-7 col-lg-offset-3">
+              <%= paginate @proyects_individual2, :theme => 'twitter-bootstrap-3',:pagination_class => "pagination-md pagination-centered" %>
+             </div>
+          </div>
+    <%end%>
+       <br/>
+               <br/>
+               <div class="row">
+                  <div class="col-lg-6 col-lg-offset-5">
+                  <%= link_to 'Regresar', herramientas_tabla_resumen_totalizador_de_investigaciones_path , :class=> 'btn btn-success btn-md active'%>
+                         &nbsp;&nbsp;&nbsp;
+              </div>
+              </div>
+   </div><!-- panel-body  -->
+      </div><!-- panel panel-primary  -->
+    </div><!-- col-lg-12  -->
+  </div>   <!-- row  --> 
