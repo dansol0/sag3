@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-lg-8 col-lg-offset-2">
+  <div class="col-lg-6 col-lg-offset-3">
       <div class="panel panel-primary">
               <div class="panel-heading">
                 <h3 class="panel-title"> <b> Buscar por investigador: &nbsp; Conferencias o ponencias </b></h3>
@@ -7,7 +7,7 @@
          <div class="panel-body">
 
                 <br/>
-                <br/>
+               
 
         <%=bootstrap_form_tag url: extension_conferencia_o_ponencia_resultados_path do |f|%>
 
@@ -17,7 +17,7 @@
                     
                     </div>
               </div>
-              <br/> <br/>
+              <br/> 
              
               <%= f.hidden_field :opcion, :value => 1 , :class => 'form-control' %>
               <div class="row">
@@ -27,8 +27,10 @@
               <%= f.submit "Buscar", :class => 'btn btn-success btn-md active'  %>
               </div>
               </div>
+              <br/>
            <% end %>   
        </div><!-- panel-body  -->
       </div><!-- panel panel-primary  -->
     </div><!-- col-lg-12  -->
   </div>   <!-- row  -->
+<br/> <br/><br/> <br/><br/> <br/>

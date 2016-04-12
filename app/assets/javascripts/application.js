@@ -16,7 +16,7 @@
 //= require turbolinks
 //= require bootstrap
 //= require jquery_ujs
-//= require jquery.ui.datepicker
+//= require jquery-ui/datepicker
 //= require_tree .
 
 
@@ -44,9 +44,12 @@ $(function(){
 				showMonthAfterYear: false,
 				yearSuffix: ''};
 			$.datepicker.setDefaults($.datepicker.regional['es']);
-		});    
+		});
 
-       
+			$(document).ready(function(){
+		    $('[data-toggle="tooltip"]').tooltip();   
+		});
+		       
 		  $(document).ready(function() {
 		 
 			 $("#notice_wrapper").fadeIn("slow").delay(2000).fadeOut("slow");

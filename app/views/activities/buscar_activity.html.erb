@@ -6,7 +6,7 @@
               </div>
          <div class="panel-body">
 
-                <br/><br/>
+         
 
       
        <%= bootstrap_form_tag url: academico_administrativo_resultados_path do |f| %>
@@ -15,7 +15,7 @@
                   <%= f.number_field :ano_periodo,  min: 2015, max: 2040, help: "Elija un año desde 2015 en adelante", label: "Período", required: "true" %>
                 </div>
               </div>    
-              <br/>
+              
             <div class="row">
                 <div class="col-lg-5 col-lg-offset-3">   
                      <%= f.select :tipo, options_for_select(["", "Cargos de dirección", "Cargos de elección", "Comisiones", "Asignaciones especiales","Otro"]), { label: "Tipo de la actividad" }, { class: "selectpicker" } %>
@@ -26,10 +26,10 @@
 
             <%= f.hidden_field :opcion, :value => 3 , :class => 'form-control' %>        
                      
-<br/><br/>
+<br/>
     			  <div class="actions">
             <div class="row">
-                      <div class="col-lg-5 col-lg-offset-4"> 
+                      <div class="col-lg-5 col-lg-offset-3"> 
                          <%= link_to 'Regresar', academico_administrativo_buscar_menu_path , :class=> 'btn btn-primary active'%>
                          &nbsp;&nbsp;&nbsp;
                           <%= submit_tag 'Buscar' , :class => 'btn btn-success btn-lg active' %>
@@ -42,13 +42,10 @@
          <% end %> 
 
 
-          <br/>
-          <br/>  
-
   
    </div><!-- panel-body  -->
       </div><!-- panel panel-primary  -->
     </div><!-- col-lg-12  -->
   </div>   <!-- row  -->              
 
-  
+  <br/> <br/>

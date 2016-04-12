@@ -6,7 +6,7 @@
               </div>
          <div class="panel-body">
 
-                <br/><br/>
+         
 
    <%= bootstrap_form_tag url: docencia_tutoria_resultados_path do |f|%>
              <div class="row">
@@ -14,9 +14,7 @@
                   <%= f.number_field :ano_periodo,  min: 2015, max: 2040, help: "Elija un año desde 2015 en adelante", label: "Año del período", required: "true" %>
                 </div>
               </div>
-              <br/> 
-  
-               <div class="row">
+              <div class="row">
                 <div class="col-lg-5 col-lg-offset-3">   
                     <%= f.select :tipo, options_for_select(["","Postgrado", "Pregrado","Pasantías"]),{ label: "Tipo de la actividad" } , { class: "selectpicker" } %>
                  </div>
@@ -26,10 +24,10 @@
             <%= f.hidden_field :opcion, :value => 3 , :class => 'form-control' %>
              
                      
-<br/><br/>
+<br/>
     			  <div class="actions">
             <div class="row">
-                      <div class="col-lg-5 col-lg-offset-4"> 
+                      <div class="col-lg-5 col-lg-offset-3"> 
                          <%= link_to 'Regresar', docencia_tutoria_buscar_menu_path , :class=> 'btn btn-primary active'%>
                          &nbsp;&nbsp;&nbsp;
                           <%= f.submit 'Buscar' , :class => 'btn btn-success btn-lg active' %>
@@ -41,18 +39,9 @@
   		
          <% end %> 
 
-
-          <br/>
-          <br/>  
-
-           
-
-               
-
-
-   </div><!-- panel-body  -->
+</div><!-- panel-body  -->
       </div><!-- panel panel-primary  -->
     </div><!-- col-lg-12  -->
   </div>   <!-- row  -->              
 
-  
+  <br/> <br/>

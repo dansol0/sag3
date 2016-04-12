@@ -70,7 +70,7 @@ gem 'prawn'
 gem "prawnto_2", :require => "prawnto"
 gem 'prawn-table'
 
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', '3.2.0'#la version 3.2.2 da problemas con los errores del _form de todos los modelos
 
 #gem 'rails-simple-search'
 
@@ -92,6 +92,7 @@ group :production do
 end
 
 gem 'jquery-ui-rails'
+
 gem 'unicorn' 
 
 ruby "2.2.4" 

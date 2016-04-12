@@ -7,13 +7,14 @@
               </div>
          <div class="panel-body">
 
-                <br/><br/>
+                <br/>
           <div class="row">
             <div class="col-lg-5 col-lg-offset-1">
               
-                  <div class="alert alert-info" role="alert">
-                    <h4 > <em><b> Asignaturas de pregrado encontradas: &nbsp; <%=@cantidad_de_pregrado %> </b></em></h4> 
-                  </div>
+                 
+                   <button class="btn btn-success" type="button">
+                 <b> Asignaturas de pregrado encontradas:  </b><span class="badge"><%=@cantidad_de_pregrado %></span>
+                </button>
                
             </div>    
               <div class="col-lg-4 col-lg-offset-1">    
@@ -75,7 +76,7 @@
           </div>
   <%end%>
        <br/>
-               <br/>
+              
                <div class="row">
                   <div class="col-lg-6 col-lg-offset-5">
                   <%= link_to 'Regresar', herramientas_tabla_resumen_totalizador_de_asignaturas_de_postgrado_pregrado_path , :class=> 'btn btn-success btn-md active'%>
@@ -86,3 +87,4 @@
       </div><!-- panel panel-primary  -->
     </div><!-- col-lg-12  -->
   </div>   <!-- row  --> 
+  

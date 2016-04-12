@@ -5,7 +5,7 @@
  *= require_self
  *= require bootstrap
  *= require rails_bootstrap_forms
- *= require jquery.ui.datepicker
+ *= require jquery-ui/datepicker
  *= require_tree .
 */
 @import "bootstrap-sprockets";

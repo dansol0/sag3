@@ -6,7 +6,7 @@
               </div>
          <div class="panel-body">
 
-                <br/><br/>
+            
 
     <%= bootstrap_form_tag url: docencia_otra__resultados_path do |f|%>
              <div class="row">
@@ -15,7 +15,7 @@
                 </div>
               </div>
 
-              <br/>
+          
 
                <div class="row">
                 <div class="col-lg-5 col-lg-offset-3">   
@@ -28,11 +28,11 @@
             <%= f.hidden_field :opcion, :value => 3 , :class => 'form-control' %>
               
                      
-       <br/><br/> 
+       <br/>
 
     			  <div class="actions">
             <div class="row">
-                      <div class="col-lg-5 col-lg-offset-4"> 
+                      <div class="col-lg-5 col-lg-offset-3"> 
                          <%= link_to 'Regresar', docencia_otra_buscar_menu_path , :class=> 'btn btn-primary active'%>
                          &nbsp;&nbsp;&nbsp;
                           <%= f.submit 'Buscar' , :class => 'btn btn-success btn-lg active' %>
@@ -44,14 +44,9 @@
   		
          <% end %> 
 
-
-          <br/>
-          <br/>  
-
-     
       </div><!-- panel-body  -->
       </div><!-- panel panel-primary  -->
     </div><!-- col-lg-12  -->
   </div>   <!-- row  -->              
 
-  
+  <br/> <br/>

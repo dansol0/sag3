@@ -14,21 +14,20 @@
         <% end %>
 
         <div class="row">
-  <div class="col-lg-12 ">
+  <div class="col-lg-10 col-lg-offset-1">
       <div class="panel panel-primary">
               <div class="panel-heading">
-                <h3 class="panel-title"> <b>Registro de Investigadores</b></h3>
+                <h3 class="panel-title"> <b>Registro de investigadores</b></h3>
               </div>
          <div class="panel-body">
 
-         <br/>
-         <br/>
+        <br/>
          <div class="row">
-           <div class="col-lg-3 col-lg-offset-1">
+           <div class="col-lg-4 col-lg-offset-1">
              <p class="bg-danger text-danger text-center">Los campos con (*) son obligatorios.</p>
              </div>
             </div>
-            <br/><br/>
+              <br/> 
         <div class="row">
 
                   <div class="col-lg-4 col-lg-offset-1">
@@ -57,8 +56,6 @@
                       </div>  <p class="text-danger">(*)</p>
                   </div>
          </div>
-            <br/>
-            <br/>
             <div class="row">
                   <div class="col-lg-4 col-lg-offset-1">
                            <div class="control-group">
@@ -84,8 +81,6 @@
                   </div> 
 
             </div>
-            <br/>
-            <br/>
             <div class="row">
                   <div class="col-lg-4 col-lg-offset-1">
                            <div class="control-group">
@@ -107,9 +102,7 @@
                   </div> 
 
             </div>
-            <br/>
-            <br/>
-              <div class="row">        
+            <div class="row">        
 
                   <div class="col-lg-4 col-lg-offset-1">
                            <div class="control-group">
@@ -137,11 +130,7 @@
                         <%= error_span(@user[:rol]) %>
                   </div>
             </div>
-            <br/>
-            <br/>
-             <br>
-      
-              <div class="row">
+           <div class="row">
                   <div class="control-group col-lg-4 col-lg-offset-1">
                               <%= f.label :password, "Contraseña:", :class => 'control-label' %>
                               <div class="controls">
@@ -160,9 +149,7 @@
                        </div>
              </div>        
 
-            <br/>
-            <br/>
-            <div class="row">
+           <div class="row">
 
                   <div class="col-lg-9 col-lg-offset-1">
 
@@ -177,19 +164,19 @@
                       </div>
                 </div>
               </div>
-                  <br/> <br/> 
+                  <br/> 
                      
               <div class="row">
                   <div class=" controls col-lg-4 col-lg-offset-1">     
                        <div class="field">
-                          <%= f.label :dedicacion,"Dedicación:"%><br>
+                          <%= f.label :dedicacion,"Dedicación:"%>
                           <%= f.text_field :dedicacion , :class => 'form-control'%>
                          </div>
                  
                       </div>
                       <div class=" controls col-lg-4 col-lg-offset-1">     
                             <div class="field">
-                            <%= f.label :cargo, "Cargo:" %><br>
+                            <%= f.label :cargo, "Cargo:" %>
                             <%= f.text_field :cargo , :class => 'form-control'%>
                           </div> <p class="text-danger">(*)</p>
                           
@@ -198,16 +185,16 @@
                  <div class="row">
                   <div class=" controls col-lg-4 col-lg-offset-1">     
                         <div class="field">
-                        <%= f.label :area, "Área:" %><br>
+                        <%= f.label :area, "Área:" %>
                          <div class="controls">
                             <select required name="user[area]" class='form-control' >
 
                               <option  disabled="disabled" selected="selected">SELECCIONE</option>
-                              <option value="Área de Investigación">Área de Investigación</option>
-                              <option value="Área de Docencia">Área de Docencia</option>
-                              <option value="Área de Extensión">Área de Extensión</option>
-                              <option value="Área de Estación Experimental">Área de Estación Experimental</option>
-                              <option value="Área de Asistencia Administrativa">Área de Asistencia Administrativa</option>
+                              <option value="Área de Investigación">Área de investigación</option>
+                              <option value="Área de Docencia">Área de docencia</option>
+                              <option value="Área de Extensión">Área de extensión</option>
+                              <option value="Área de Estación Experimental">Área de estación experimental</option>
+                              <option value="Área de Asistencia Administrativa">Área de asistencia administrativa</option>
                               
                           </select>
                           </div><p class="text-danger">(*)</p>
@@ -218,7 +205,7 @@
 
                      <div class=" controls col-lg-4 col-lg-offset-1">     
                           <div class="field">
-                            <%= f.label :anos_serv, "Años de servicio:" %><br>
+                            <%= f.label :anos_serv, "Años de servicio:" %>
                            <%= f.number_field :anos_serv , :class => 'form-control'%>
                           </div> 
                       </div>
@@ -226,12 +213,12 @@
 
              </div>
 
-              <br/>  <br/>
+             
              <div class="row">
                      
                     <div class=" controls col-lg-4 col-lg-offset-1">     
                           <div class="field">
-                             <%= f.label :adscrito, "Adscrito:" %><br>
+                             <%= f.label :adscrito, "Adscrito:" %>
                             <%= f.text_field :adscrito , :class => 'form-control'%>
                         </div> 
                         
@@ -239,7 +226,7 @@
 
                       <div class=" controls col-lg-4 col-lg-offset-1">     
                            <div class="field">
-                             <%= f.label :fecha_ult_ascenso, "Fecha último ascenso:" %><br>
+                             <%= f.label :fecha_ult_ascenso, "Fecha último ascenso:" %>
                              <div class="control input-group input-group">
                           <span class="input-group-addon"  > <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></span>
                               <%= f.text_field :fecha_ult_ascenso, :class => 'form-control datepicker', max: Date.today, placeholder: "dd/mm/yyyy" %>
@@ -249,12 +236,12 @@
 
 
              </div>
-<br/>  <br/>
+<br/>  
                <div class="row">
                       
                         <div class=" controls col-lg-4 col-lg-offset-1">     
                           <div class="field">
-                            <%= f.label :grado_academico, "Grado académico:" %><br>
+                            <%= f.label :grado_academico, "Grado académico:" %>
                              <div class="control input-group input-group">
                           <span class="input-group-addon"  > <span class="glyphicon glyphicon-education" aria-hidden="true"></span></span>
                             <%= f.text_field :grado_academico , :class => 'form-control'%>
@@ -265,7 +252,7 @@
 
                       <div class=" controls col-lg-4 col-lg-offset-1">     
                         <div class="field">
-                          <%= f.label :estatus_user, "Estatus del investigador:" %><br>
+                          <%= f.label :estatus_user, "Estatus del investigador:" %>
                              <div class="controls">
                                 <select required name="user[estatus_user]" class='form-control' >
 
@@ -285,7 +272,6 @@
                
 
 
-              <br/>  <br/>
              
               <div class="row">
                     <div class="col-lg-6 col-lg-offset-4"> 
@@ -297,7 +283,7 @@
                      </div>
               </div>
 
-            <br/>  <br/>
+            <br/>  
             
           </div><!-- panel-body  -->
       </div><!-- panel panel-primary  -->

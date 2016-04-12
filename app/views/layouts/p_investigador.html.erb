@@ -28,7 +28,7 @@
               <!-- Brand and toggle get grouped for better mobile display -->
               <div class="navbar-header">
                 
-                <li><a class="navbar-brand" href= ""> <b>SISGADIE</b> </a> </li>
+                <li > <b><%= link_to  "SIGADI", bienvenido_portal_path, :class=>"navbar-brand"  %> </b></li>
               </div>
 
               <!-- Collect the nav links, forms, and other content for toggling -->
@@ -71,8 +71,41 @@
                     </ul>
                   </li>
 
-                <li><%= link_to buscar_por_area_path do %><span class="glyphicon glyphicon-search">  </span><b> BUSCAR ACTIVIDAD</b> <% end %>  
-                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-search"></span><b> BUSCAR ACTIVIDAD</b><span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                      <li class="dropdown-header"><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp; ÁREA DE INVESTIGACIÓN</li>
+                      <li role="separator" class="divider"></li>
+                      <li><%= link_to investigacion_proyecto_buscar_menu_path do %>&nbsp;&nbsp;&nbsp; <span class="glyphicon glyphicon-edit"></span>  Proyectos <% end %></li>
+                       <li role="separator" class="divider"></li>
+                      <li><%= link_to investigacion_publicacion_buscar_menu_path do %>&nbsp;&nbsp;&nbsp; <span class="glyphicon glyphicon-edit"></span>  Publicaciones <% end %></li>
+                      <li role="separator" class="divider"></li>
+                      <li>  <%= link_to investigacion_otra_buscar_menu_path do %>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span>  Otras actividades <% end %></li>
+                      <li role="separator" class="divider"></li>
+
+                      <li class="dropdown-header"><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp; ÁREA DE DOCENCIA</li>
+                      <li role="separator" class="divider"></li>
+                      <li><%= link_to docencia_asignatura_buscar_menu_path do %>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span>  Dictado de asignaturas <% end %></li>
+                      <li role="separator" class="divider"></li>
+                      <li><%= link_to docencia_tutoria_buscar_menu_path do %>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span>  Tutorías <% end %></li>
+                      <li role="separator" class="divider"></li>
+                      <li><%= link_to docencia_trabajos_buscar_menu_path do %>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span>  Jurado <% end %></li>
+                      <li role="separator" class="divider"></li>
+                      <li><%= link_to docencia_otra_buscar_menu_path do %>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span>  Otras actividades <% end %></li>
+                      <li role="separator" class="divider"></li>
+
+                       <li class="dropdown-header"><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp; ÁREA DE EXTENSIÓN</li>
+                       <li role="separator" class="divider"></li>
+                       <li><%= link_to extension_conferencia_o_ponencia_buscar_menu_path do %>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span>  Conferencias o ponencias <% end %></li>
+                       <li role="separator" class="divider"></li>
+                       <li><%= link_to extension_otra_buscar_menu_path do %>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span>  Otras actividades <% end %></li>
+
+                      <li role="separator" class="divider"></li>
+                      <li> <%= link_to mejoramiento_y_capacitacion_buscar_menu_path do %><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp; Mejoramiento y capacitación <% end %> </li>
+                      <li role="separator" class="divider"></li>
+                      <li> <%= link_to academico_administrativo_buscar_menu_path do %><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp; Actividades académico administrativas <% end %> </li>
+                    </ul>
+                  </li>
                   
                   
                  

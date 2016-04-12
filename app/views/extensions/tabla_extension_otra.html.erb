@@ -3,17 +3,18 @@
   <div class="col-lg-12 ">
       <div class="panel panel-primary">
               <div class="panel-heading">
-                <h3 class="panel-title"> <b> Actividades realizadas por los investigadores Dpto. de Extensión: &nbsp;&nbsp;&nbsp;Tabla de <%=@nombre %></b></h3>
+                <h3 class="panel-title"> <b> Actividades del Dpto. de Extensión: &nbsp;&nbsp;&nbsp;Tabla de <%=@nombre %></b></h3>
               </div>
          <div class="panel-body">
 
                 <br/><br/>
           <div class="row">
-            <div class="col-lg-7 ">
+            <div class="col-lg-4 col-lg-offset-1">
               
-                  <div class="alert alert-info" role="alert">
-                    <h4 > <em><b> Actividades encontradas de <%=@nombre %>: &nbsp; <%=@cantidad %> </b></em></h4> 
-                  </div>
+                    <button class="btn btn-success" type="button">
+                 <b> ACTIVIDADES ENCONTRADAS </b><span class="badge"><%=@cantidad %></span>
+                </button>
+
                
             </div>    
               <div class="col-lg-3 col-lg-offset-1">    
