@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
 
   self.primary_key = 'id'
 
- attr_accessible  :nombre_apellido, :id, :email, :nombre1, :password, :password_confirmation, :nombre2,  :apellido1, :apellido2, :direccion, :tlf, :rol, :dedicacion, :cargo, :area, :categoria_actual, :anos_serv, :adscrito, :fecha_ult_ascenso, :grado_academico, :estatus_user
+ attr_accessible  :nombre_apellido, :id, :email, :nombre1, :password, :password_confirmation, :nombre2,  :apellido1, :apellido2, :direccion, :tlf, :rol, :dedicacion, :cargo, :area, :categoria_actual, :anos_serv, :adscrito, :fecha_ult_ascenso, :grado_academico, :estatus_user, :ultima_conexion
 	  
 	  	
 		validates :id, :presence => {:message => "- Usted debe ingresar una cedula"},uniqueness: {case_sensitive: false ,message: "- La cedula que introdujo ya se encuentra  registrada"}, :numericality => {:only_integer => true, :message => "La cedula debe ser numérica"}

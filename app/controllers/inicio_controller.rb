@@ -8,7 +8,7 @@ class InicioController < ApplicationController
   end
 
   def portal
-  
+
   end
 
 

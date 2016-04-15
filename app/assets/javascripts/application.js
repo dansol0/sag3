@@ -54,8 +54,6 @@ $(function(){
 		 
 			 $("#notice_wrapper").fadeIn("slow").delay(2000).fadeOut("slow");
 
-				//  $('.datepicker').datepicker( {dateFormat: 'dd/mm/yy'});
-				
 		   });
 
 		  $(document).mouseenter(function ()  {

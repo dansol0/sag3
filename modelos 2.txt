@@ -4,7 +4,7 @@ rails g scaffold User cedula:integer nombre1:string nombre2:string apellido1:str
 
 ************************* Investigacion *************************************
 
-rails g scaffold Proyect titulo:string estatus:string ente_financista:string integrantes:text monto:float descripcion:text horas:integer fecha_i:date fecha_f:date ano_periodo:integer integrantes:text creador:integer
+rails g scaffold Proyect titulo:string estatus:string ente_financista:string integrantes:text monto:float descripcion:text horas:integer fecha_i:date fecha_f:date ano_periodo:integer integrantes:text creador:integer investigador_responsable:string co_investigador:string grupo_o_individual:string
 
 rails g scaffold Publication titulo:string revista_editorial:string arbitr_no_arbitr:string descripcion:text horas:integer fecha_i:date fecha_f:date ano_periodo:integer creador:integer
 
